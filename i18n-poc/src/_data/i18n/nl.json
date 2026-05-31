@@ -1,0 +1,172 @@
+{
+  "_note": "DRAFT translation for the PoC — needs review by a native Dutch copywriter (transcreation, not literal MT). 'Fun Time' kept as the product term; GDPR rendered as AVG.",
+  "meta": {
+    "title": "Vesta — Gezinsleven over landen, talen en generaties heen",
+    "description": "De AI-native gezinsapp voor huishoudens die leven over landen, talen en generaties heen. In de eerste plaats gebouwd voor expatgezinnen. Schrijf je in voor de wachtlijst van de besloten bèta.",
+    "ogTitle": "Vesta — Gezinsleven over landen, talen en generaties heen",
+    "ogDescription": "De AI-native gezinsapp voor huishoudens die leven over landen, talen en generaties heen. In de eerste plaats gebouwd voor expatgezinnen."
+  },
+  "header": { "cta": "Op de wachtlijst" },
+  "hero": {
+    "eyebrow": "Een gezinsapp, maar dan rustiger",
+    "headline": "Modern gezinsleven is meer dan <em class=\"text-accent not-italic\"><span class=\"italic\">één hoofd</span></em> kan onthouden.",
+    "subhead": "De <span class=\"text-ink\">AI-gedreven gezinsapp</span> die de mentale last van je gezin draagt, zodat niemand die alleen hoeft te dragen.",
+    "cta": "Schrijf je in op de wachtlijst",
+    "noSpam": "Geen spam. Nooit je gegevens verkocht, aan niemand.",
+    "cities": {
+      "amsterdam": "— thuisbasis",
+      "istanbul": "— grootouders",
+      "london": "— oudste studeert"
+    }
+  },
+  "s2": {
+    "eyebrow": "De mentale last",
+    "heading": "Het komt bijna altijd neer op <em class=\"text-accent not-italic\"><span class=\"italic\">één persoon.</span></em>",
+    "intro": "Als jij de ouder bent die weet wanneer de schoolvakantie begint, wanneer het paspoort van je kind verloopt en wat er ligt te ontdooien in de koelkast — dan draag jij de mentale last van een modern gezin.",
+    "stats": [
+      { "num": "71%", "text": "van de mentale taken in huis komt op één ouder neer — ongeacht inkomen of carrière." },
+      { "num": "70%", "text": "van de moeders in Europa noemt zichzelf <em>overbelast</em> — bijna de helft meldt angst of depressie die daarmee samenhangt." },
+      { "num": "82%", "text": "van de ouders heeft moeite om alle gezinsafspraken en verplichtingen bij te houden." },
+      { "num": "56%", "text": "van de gezinnen heeft iets belangrijks gemist door een planningsconflict." }
+    ],
+    "framing": "Meestal is het een moeder die het draagt — maar in veel huizen is het simpelweg wie de logistiek regelt: de ouder die minder reist, de kostwinner, degene die ongemerkt de gezinsorganisator werd. Wie het bij jou thuis ook is, de last is echt — en hij hoort niet op één paar schouders te rusten.",
+    "capstone": "Vesta bestaat om die last uit je hoofd te halen — en hem ergens neer te leggen waar je hele gezin hem kan delen."
+  },
+  "s3": {
+    "eyebrow": "Hoe het werkt",
+    "heading": "Hoe een week er <em class=\"text-accent not-italic\"><span class=\"italic\">echt</span></em> uitziet.",
+    "subhead": "Geen opsomming van functies — een paar gewone momenten, en wat Vesta er rustig mee doet.",
+    "youLabel": "Jij",
+    "cards": [
+      {
+        "title": "Je dag, al op een rij.",
+        "you": "Open de app bij je koffie.",
+        "vesta": "Vandaag in één overzicht: zwemles om 4 uur, het pakket dat getekend moet worden, eten bij je moeder — opgehaald uit elke huishoudagenda, in jouw taal.",
+        "outcome": "Eén blik in plaats van vijf apps en een hoop onthouden."
+      },
+      {
+        "title": "Twee kinderen, twee agenda's.",
+        "you": "Maak een foto van de schoolbrieven als ze thuiskomen.",
+        "vesta": "Zwemles, de tandarts, de aanbetaling voor het schoolreisje vóór vrijdag — elk in de agenda van het juiste kind, deadline en al.",
+        "outcome": "Jij bent niet langer de invoerkracht van het gezin."
+      },
+      {
+        "title": "Een bezoek, eindelijk in de agenda.",
+        "you": "Stuur het bericht van je ouders in het buitenland over de vakantie door.",
+        "vesta": "Leest de datums die ze voorstellen, legt ze naast de schoolvakanties van de kinderen en markeert de week die past.",
+        "outcome": "Een bezoek over de grens in seconden vastgelegd, geen eindeloze mailwisseling."
+      },
+      {
+        "title": "Zie wat er overblijft om van te genieten.",
+        "you": "Leg de uitgaven van de week vast — <em class=\"italic\">\"€45 boodschappen Lidl.\"</em>",
+        "vesta": "<em class=\"italic\">\"Nog €980 Fun Time, 12 dagen te gaan — ongeveer €80 per dag.\"</em> En: <em class=\"italic\">\"Mama's verjaardag volgende week — geld opzijzetten?\"</em>",
+        "outcome": "Budgetteren dat voelt als ruimte, niet als beperking."
+      }
+    ]
+  },
+  "s4": {
+    "eyebrow": "Wat Vesta anders maakt",
+    "heading": "Vier ideeën die elk scherm vormgeven.",
+    "principles": [
+      {
+        "title": "Eén persoon, meerdere huishoudens.",
+        "benefit": "Eén login omvat elk huishouden waar je bij hoort — je eigen huis, het huis van je ouders in het buitenland, het huis van een mede-ouder — zodat er geen aparte app of groepschat is voor elke kant van de familie.",
+        "brief": "\"Vandaag, verspreid over je huishoudens: Noa naar de tandarts om 4 uur, de vlucht van je moeder landt om 2 uur, en jij bent vrijdag terug van de reis naar Berlijn.\""
+      },
+      {
+        "title": "Je gezin, in jouw taal.",
+        "benefit": "Iedereen ziet hetzelfde gezinsleven in hun eigen taal en tijdzone — zodat niemand buitenspel staat door een taal of klok die niet van hen is.",
+        "brief": "\"Een schoolbericht komt binnen in het Nederlands. Jij leest het in het Engels, oma leest het in het Turks — en het komt in elke agenda op de juiste lokale tijd.\""
+      },
+      {
+        "title": "AI die het denkwerk doet.",
+        "benefit": "Geen formulieren meer invullen: maak een foto, stuur een e-mail door of zeg het gewoon — en de juiste agenda's en to-dolijsten vullen zichzelf.",
+        "brief": "\"Woensdag zit vol — Lily's zwemles, de wekelijkse boodschappen en je vaste belletje met je ouders. Zal ik de boodschappen naar zaterdagochtend verplaatsen zodat de avond rustiger aanvoelt?\""
+      },
+      {
+        "title": "Een rustige, behulpzame partner.",
+        "benefit": "Hulp komt precies wanneer het telt en blijft stil wanneer dat niet zo is — geen badge-spam en meldingenlawaai waar andere apps je in bedelven.",
+        "brief": "\"Een rustige dag blijft rustig. Eén berichtje om zes uur: 'Vanavond de vuilnis buiten — verder ben je helemaal bij.'\""
+      }
+    ]
+  },
+  "s5": {
+    "eyebrow": "Over grenzen heen",
+    "heading": "Gebouwd voor gezinnen die <em class=\"text-accent-light not-italic\"><span class=\"italic\">niet passen</span></em> in één land.",
+    "shapes": [
+      "Ouders in het buitenland, grootouders thuis, zomers in een derde land.",
+      "De ene ouder reist de meeste weken voor werk; de ander houdt het huis draaiende.",
+      "Mede-ouders in twee landen, met kinderen die tussen beide heen en weer gaan.",
+      "Gezinnen over de grens die verjaardagen, schoolvakanties en bezoeken afstemmen over drie tijdzones."
+    ],
+    "graphEyebrow": "De sociale graaf van 3 graden",
+    "graphBody": "Stuur berichten naar en stem af met familie buiten je huishouden — je tante, de andere grootouder van je kind, je beste vriend die eigenlijk familie is — zonder dat zij een nieuw account hoeven aan te maken of zich bij een nieuwe groepschat moeten voegen."
+  },
+  "s6": {
+    "eyebrow": "Gebouwd in Europa",
+    "heading": "AVG by design. <em class=\"text-accent not-italic\"><span class=\"italic\">Jouw data, alleen van jou.</span></em>",
+    "subline": "Vesta is onafhankelijk, gefinancierd door de familie en gebouwd voor de lange termijn.",
+    "items": [
+      { "term": "EU-dataopslag", "desc": "De gegevens van je gezin staan in datacenters in de EU." },
+      { "term": "Beperkt tot je huishouden", "desc": "Alleen de mensen die jij uitnodigt kunnen het zien." },
+      { "term": "Nooit verkocht of gedolven", "desc": "Nooit gebruikt om de modellen van een ander te trainen." },
+      { "term": "Geen trackers van derden", "desc": "Je activiteit blijft binnen je huishouden en wordt nooit over het web gevolgd." }
+    ]
+  },
+  "cta": {
+    "eyebrow": "De wachtlijst",
+    "heading": "Stap als eerste <em class=\"text-accent not-italic\"><span class=\"italic\">binnen</span></em> bij Vesta.",
+    "body": "De besloten bèta opent later in 2026 voor vroege wachtlijstleden. Vertel ons waar je bent, dan geven we bèta-uitnodigingen daarop prioriteit.",
+    "button": "Schrijf je in op de wachtlijst"
+  },
+  "faq": {
+    "eyebrow": "Vragen",
+    "heading": "Vragen, <em class=\"text-accent not-italic\"><span class=\"italic\">eerlijk beantwoord.</span></em>",
+    "items": [
+      {
+        "q": "Wat is Vesta?",
+        "a": "Een app om het gezin te organiseren — agenda, taken, lijsten, foto's, budget en huishoudchat — gebouwd rond een AI die de mentale last overneemt van de ouder die hem altijd droeg. Mobile-first."
+      },
+      {
+        "q": "Voor wie is het?",
+        "a": "Moderne gezinnen met een leven over meerdere landen, talen of huishoudens. Als je gezin verspreid is over landen, talen of huizen — dan is Vesta er voor jou, expat of niet."
+      },
+      {
+        "q": "Wanneer komt het uit?",
+        "a": "We zijn nu aan het bouwen; de besloten bèta opent in 2026 voor vroege wachtlijstleden. De publieke lancering volgt zodra we er zeker van zijn dat het product standhoudt voor echte gezinnen."
+      },
+      {
+        "q": "Hoe verschilt het van Apple Family Sharing of Google Family Link?",
+        "a": "Die tools gaan ervan uit dat elk gezinslid hetzelfde thuisland deelt. Vesta is vanaf dag één gebouwd voor gezinnen die over landen, talen en tijdzones heen leven — en voegt er een echte coördinatielaag aan toe: taken, foto's, huishoudbudget en chat op één plek."
+      },
+      {
+        "q": "Hoe verschilt het van andere gezinsapps?",
+        "a": "Vesta is Europees gebouwd, multi-huishouden van opzet (één account omvat elk huishouden waar je bij hoort), meertalig per gezinslid, AI-native en AVG-by-design. Juist die combinatie maakt Vesta de juiste keuze voor grensoverschrijdende, meertalige, moderne gezinnen."
+      },
+      {
+        "q": "Komt het beschikbaar in mijn taal?",
+        "a": "Vesta lanceert in het Engels, met Nederlands kort daarna. Duits, Frans en Turks staan als volgende op de roadmap. Vertel ons je voorkeurstaal als je je inschrijft voor de wachtlijst — we gebruiken dat om prioriteiten te stellen."
+      },
+      {
+        "q": "Zijn de gegevens van mijn gezin veilig?",
+        "a": "Ja. Vesta is AVG-native, met dataopslag in de EU, geen tracking door derden en geen verkoop van je gegevens. De gegevens van je huishouden blijven beperkt tot je huishouden, en je kunt ze op elk moment exporteren of verwijderen."
+      },
+      {
+        "q": "Hoe zit het met oudere familieleden die niet handig zijn met techniek?",
+        "a": "Vesta wordt zo ontworpen dat een grootouder met een eenvoudige smartphone in een ander land kan meedoen zonder gedoe met accounts. Foto's ontvangen, een gedeelde agenda zien, meedoen aan een familiechat — dat hoort vanaf dag 1 moeiteloos te zijn."
+      },
+      {
+        "q": "Wat gaat het kosten?",
+        "a": "Vesta krijgt een gratis versie met de essentiële coördinatiefuncties voor elk gezin. Premiumfuncties krijgen een eerlijke prijs in euro's — de details publiceren we dichter bij de lancering. Wachtlijstleden krijgen tijdens de bèta verlengde gratis toegang tot premiumfuncties."
+      },
+      {
+        "q": "Zijn jullie aan het werven, financiering aan het ophalen of open voor samenwerkingen?",
+        "a": "We zijn onafhankelijk en blijven dat graag. Ben je een internationale school, een uitgever voor de expatgemeenschap, een HR-mobiliteitsmanager bij een Nederlandse werkgever of een verhuisspecialist — en wil je betrokken zijn bij de bèta — stuur ons dan een bericht op <a href=\"mailto:hello@vesta.social\" class=\"text-accent hover:text-ink underline decoration-accent/30 hover:decoration-ink/50 underline-offset-4\">hello@vesta.social</a>."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Vesta — vernoemd naar de Romeinse godin van huis en haard.",
+    "builtIn": "Gebouwd in Amsterdam, Nederland."
+  }
+}
