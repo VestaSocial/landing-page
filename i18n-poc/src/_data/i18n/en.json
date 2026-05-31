@@ -20,23 +20,97 @@
   },
   "s2": {
     "eyebrow": "The mental load",
-    "heading": "It almost always falls on <em class=\"text-accent not-italic\"><span class=\"italic\">one person.</span></em>"
+    "heading": "It almost always falls on <em class=\"text-accent not-italic\"><span class=\"italic\">one person.</span></em>",
+    "intro": "If you're the parent who knows when the school holiday starts, when your child's passport expires, and what's defrosting in the fridge — you're carrying the mental load of a modern family.",
+    "stats": [
+      { "num": "71%", "text": "of household mental-load tasks fall on one parent — regardless of income or career." },
+      { "num": "70%", "text": "of mothers across Europe describe themselves as <em>overloaded</em> — nearly half report anxiety or depression linked to it." },
+      { "num": "82%", "text": "of parents struggle to keep track of family events and commitments." },
+      { "num": "56%", "text": "of families have missed something important because of a scheduling conflict." }
+    ],
+    "framing": "It's most often a mother who carries it — but in plenty of homes it's simply whoever runs the logistics: the parent who travels less, the single earner, the one who quietly became the family's organiser. Whoever it is in your home, the weight is real — and it shouldn't sit on one set of shoulders.",
+    "capstone": "Vesta exists to take that load off your head — and put it somewhere your whole family can share it."
   },
   "s3": {
     "eyebrow": "How it works",
-    "heading": "What a week <em class=\"text-accent not-italic\"><span class=\"italic\">actually</span></em> looks like."
+    "heading": "What a week <em class=\"text-accent not-italic\"><span class=\"italic\">actually</span></em> looks like.",
+    "subhead": "Not a list of features — a few ordinary moments, and what Vesta quietly does with them.",
+    "youLabel": "You",
+    "cards": [
+      {
+        "title": "Your day, already sorted.",
+        "you": "Open the app over coffee.",
+        "vesta": "Today in one view: swimming at 4, the parcel to sign for, dinner at your mum's — pulled from every household calendar, in your language.",
+        "outcome": "One glance instead of five apps and a mental tally."
+      },
+      {
+        "title": "Two kids, two schedules.",
+        "you": "Snap the school flyers as they come home.",
+        "vesta": "Swimming, the dentist, the class-trip deposit due Friday — each on the right child's calendar, deadline and all.",
+        "outcome": "You stop being the family's data-entry clerk."
+      },
+      {
+        "title": "A visit, finally on the calendar.",
+        "you": "Forward the message from your parents abroad about half-term.",
+        "vesta": "Reads the dates they suggest, lines them up against the kids' school holidays, and flags the week that works.",
+        "outcome": "A cross-border visit pinned down in seconds, not an email chain."
+      },
+      {
+        "title": "See what's left to enjoy.",
+        "you": "Log the week's spending — <em class=\"italic\">\"€45 groceries Lidl.\"</em>",
+        "vesta": "<em class=\"italic\">\"€980 of Fun Time left, 12 days to go — about €80 a day.\"</em> And: <em class=\"italic\">\"Mum's birthday next week — set money aside?\"</em>",
+        "outcome": "Budgeting that feels like permission, not restriction."
+      }
+    ]
   },
   "s4": {
     "eyebrow": "What makes Vesta different",
-    "heading": "Four ideas that shape every screen."
+    "heading": "Four ideas that shape every screen.",
+    "principles": [
+      {
+        "title": "One person, many households.",
+        "benefit": "One login holds every household you belong to — your home, your parents' place abroad, a co-parent's home — so there's no separate app or group chat for each side of the family.",
+        "brief": "\"Today, across your households: Noa's dentist at 4, your mum's flight lands at 2, and you're back from the Berlin trip Friday.\""
+      },
+      {
+        "title": "Your family, in your language.",
+        "benefit": "Everyone sees the same family life in their own language and timezone — so no one's left out by a language or a clock that isn't theirs.",
+        "brief": "\"A school notice arrives in Dutch. You read it in English, Grandma reads it in Turkish — and it lands in each calendar at the right local time.\""
+      },
+      {
+        "title": "AI that does the thinking.",
+        "benefit": "Stop typing life into forms: snap a flyer, forward an email, or just say it — and the right calendars and to-do lists fill themselves in.",
+        "brief": "\"Wednesday is stacked — Lily's swimming lesson, the weekly shop, and your usual catch-up with your parents. Want me to move the shop to Saturday morning so the evening feels less rushed?\""
+      },
+      {
+        "title": "A quiet, helpful partner.",
+        "benefit": "Help arrives when it actually counts and stays quiet when it doesn't — none of the badge-spam and notification noise other apps bury you in.",
+        "brief": "\"A quiet day stays quiet. One note at six: 'Bins out tonight — otherwise, you're all caught up.'\""
+      }
+    ]
   },
   "s5": {
     "eyebrow": "Across borders",
-    "heading": "Built for families that <em class=\"text-accent-light not-italic\"><span class=\"italic\">don't fit</span></em> in one country."
+    "heading": "Built for families that <em class=\"text-accent-light not-italic\"><span class=\"italic\">don't fit</span></em> in one country.",
+    "shapes": [
+      "Parents abroad, grandparents back home, summers in a third country.",
+      "One parent travels for work most weeks; the other holds the home.",
+      "Co-parents across two countries with kids who move between both.",
+      "Cross-border families coordinating birthdays, school holidays, and visits across three timezones."
+    ],
+    "graphEyebrow": "The 3-degree social graph",
+    "graphBody": "Message and coordinate with extended family who aren't in your household — your aunt, your child's other grandparent, your best friend who's basically family — without making them set up another account or join a new group chat."
   },
   "s6": {
     "eyebrow": "Built in Europe",
-    "heading": "GDPR by design. <em class=\"text-accent not-italic\"><span class=\"italic\">Your data, yours alone.</span></em>"
+    "heading": "GDPR by design. <em class=\"text-accent not-italic\"><span class=\"italic\">Your data, yours alone.</span></em>",
+    "subline": "Vesta is independent, family-funded, and built for the long term.",
+    "items": [
+      { "term": "EU data residency", "desc": "Your family's data lives in EU data centres." },
+      { "term": "Scoped to your household", "desc": "Only the people you invite can see it." },
+      { "term": "Never sold or mined", "desc": "Never used to train someone else's models." },
+      { "term": "No third-party trackers", "desc": "Your activity stays inside your household, never followed across the web." }
+    ]
   },
   "cta": {
     "eyebrow": "The waitlist",
@@ -46,7 +120,49 @@
   },
   "faq": {
     "eyebrow": "Questions",
-    "heading": "Questions, <em class=\"text-accent not-italic\"><span class=\"italic\">answered honestly.</span></em>"
+    "heading": "Questions, <em class=\"text-accent not-italic\"><span class=\"italic\">answered honestly.</span></em>",
+    "items": [
+      {
+        "q": "What is Vesta?",
+        "a": "A family management app — calendar, tasks, lists, photos, budget, and household chat — built around an AI that takes the mental load off the parent who's been carrying it. Mobile-first."
+      },
+      {
+        "q": "Who is it for?",
+        "a": "Modern families with multi-country, multilingual, or multi-household lives. If your family lives across countries, languages, or homes — Vesta is for you, expat or not."
+      },
+      {
+        "q": "When will it launch?",
+        "a": "We're currently in build, with private beta opening to early waitlist members in 2026. Public launch follows once we're confident the product holds up for real families."
+      },
+      {
+        "q": "How is it different from Apple Family Sharing or Google Family Link?",
+        "a": "Those tools assume every family member shares the same home country. Vesta is built for families that live across countries, languages, and timezones from day one — and adds a real coordination layer on top: tasks, photos, household budget, and chat in one place."
+      },
+      {
+        "q": "How is it different from other family apps?",
+        "a": "Vesta is European-built, multi-household by design (one account spans every household you belong to), multilingual per family member, AI-native, and GDPR-by-design. That combination is what makes Vesta the right fit for cross-border, multilingual, modern families."
+      },
+      {
+        "q": "Will it be available in my language?",
+        "a": "Vesta launches in English, with Dutch following shortly after. German, French, and Turkish are next on the roadmap. Tell us your preferred language when you join the waitlist — we use that to prioritise."
+      },
+      {
+        "q": "Will my family's data be safe?",
+        "a": "Yes. Vesta is GDPR-native, with EU data residency, no third-party tracking, and no selling of your data. Your household's data is scoped to your household, and you can export or delete it at any time."
+      },
+      {
+        "q": "What about elderly relatives who aren't tech-savvy?",
+        "a": "Vesta is being designed so that a grandparent on a basic smartphone in another country can participate without an account-setup ordeal. Receiving photos, seeing a shared calendar, joining a family chat — that should be effortless on Day 1."
+      },
+      {
+        "q": "How much will it cost?",
+        "a": "Vesta will have a free tier covering the essential coordination features for every family. Premium features will be priced fairly in EUR — we'll publish the details closer to launch. Waitlist members get extended free access to premium features during beta."
+      },
+      {
+        "q": "Are you hiring, fundraising, or open to partnerships?",
+        "a": "We're independent and intend to stay that way. If you're an international school, an expat-community publisher, an HR mobility lead at a NL employer, or a relocation specialist — and you'd like to be involved in the beta — drop us a line at <a href=\"mailto:hello@vesta.social\" class=\"text-accent hover:text-ink underline decoration-accent/30 hover:decoration-ink/50 underline-offset-4\">hello@vesta.social</a>."
+      }
+    ]
   },
   "footer": {
     "tagline": "Vesta — named after the Roman goddess of home and family.",
