@@ -96,6 +96,10 @@ permalink: "{% if loc.isDefault %}index.html{% else %}{{ loc.code }}/index.html{
     .acc-icon::before { content: '+'; display: inline-block; transition: transform 0.2s ease; }
     details[open] .acc-icon::before { content: '–'; }
 
+    /* Language dropdown caret */
+    .lang-caret { display: inline-block; transition: transform 0.2s ease; }
+    details.lang-switch[open] .lang-caret { transform: rotate(180deg); }
+
     /* Soft fade-in on scroll for editorial sections */
     @media (prefers-reduced-motion: no-preference) {
       .reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -149,15 +153,24 @@ permalink: "{% if loc.isDefault %}index.html{% else %}{{ loc.code }}/index.html{
     <div class="max-w-5xl mx-auto px-6 sm:px-10 py-5 flex items-center justify-between gap-4">
       <a href="{% if loc.isDefault %}/{% else %}/{{ loc.code }}/{% endif %}" class="font-serif italic text-2xl text-ink tracking-tight opsz-md">Vesta</a>
       <div class="flex items-center gap-4 sm:gap-6">
-        <!-- Language switcher — links to the same page in each locale -->
-        <nav aria-label="Language" class="flex items-center gap-3 text-sm">
-          {%- for l in locales %}
-          {%- if l.code == loc.code %}
-          <span aria-current="true" class="font-serif italic text-ink">{{ l.label }}</span>
-          {%- else %}
-          <a href="{% if l.isDefault %}/{% else %}/{{ l.code }}/{% endif %}" hreflang="{{ l.code }}" lang="{{ l.code }}" class="font-serif italic text-muted hover:text-accent transition">{{ l.label }}</a>
-          {%- endif %}
-          {%- endfor %}
+        <!-- Language switcher — compact dropdown of the current locale code -->
+        <nav aria-label="Language">
+          <details class="lang-switch relative">
+            <summary class="flex items-center gap-1.5 cursor-pointer select-none text-[11px] font-semibold tracking-editorial-eyebrow uppercase text-ink2 hover:text-accent transition" aria-label="Change language">
+              {{ loc.code | upper }}
+              <span class="lang-caret text-[9px] text-muted">▾</span>
+            </summary>
+            <div class="absolute right-0 mt-3 min-w-[11rem] bg-cream border border-rule rounded-xl py-1 z-50 shadow-[0_10px_30px_-12px_rgba(31,26,20,0.25)]">
+              {%- for l in locales %}
+              <a href="{% if l.isDefault %}/{% else %}/{{ l.code }}/{% endif %}" hreflang="{{ l.code }}" lang="{{ l.code }}"
+                 class="flex items-center justify-between gap-6 px-4 py-2 font-serif italic text-base transition {% if l.code == loc.code %}text-accent{% else %}text-ink2 hover:text-accent{% endif %}"
+                 {% if l.code == loc.code %}aria-current="true"{% endif %}>
+                {{ l.label }}
+                <span class="text-[10px] not-italic font-semibold tracking-editorial-eyebrow uppercase {% if l.code == loc.code %}text-accent{% else %}text-muted{% endif %}">{{ l.code | upper }}</span>
+              </a>
+              {%- endfor %}
+            </div>
+          </details>
         </nav>
         <button
           data-tally-open="kdv0Rd"
@@ -509,6 +522,24 @@ permalink: "{% if loc.isDefault %}index.html{% else %}{{ loc.code }}/index.html{
         });
       }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
       document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+  <!-- Close the language dropdown on outside-click or Escape -->
+  <script>
+    (function () {
+      function closeAll(except) {
+        document.querySelectorAll('details.lang-switch[open]').forEach(function (d) {
+          if (d !== except) d.removeAttribute('open');
+        });
+      }
+      document.addEventListener('click', function (e) {
+        var open = e.target.closest && e.target.closest('details.lang-switch[open]');
+        closeAll(open);
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeAll(null);
+      });
     })();
   </script>
 
