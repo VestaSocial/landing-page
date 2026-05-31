@@ -2,9 +2,9 @@
   "_note": "DRAFT translation for the PoC — needs review by a native Dutch copywriter (transcreation, not literal MT). 'Fun Time' kept as the product term; GDPR rendered as AVG.",
   "meta": {
     "title": "Vesta — Gezinsleven over landen, talen en generaties heen",
-    "description": "De AI-native gezinsapp voor huishoudens die zich uitstrekken over landen, talen en generaties. Allereerst gebouwd voor expatgezinnen. Schrijf je in voor de wachtlijst van de besloten bèta.",
+    "description": "De AI-native gezinsapp voor huishoudens die leven over landen, talen en generaties heen. In de eerste plaats gebouwd voor expatgezinnen. Schrijf je in voor de wachtlijst van de besloten bèta.",
     "ogTitle": "Vesta — Gezinsleven over landen, talen en generaties heen",
-    "ogDescription": "De AI-native gezinsapp voor huishoudens die zich uitstrekken over landen, talen en generaties. Allereerst gebouwd voor expatgezinnen."
+    "ogDescription": "De AI-native gezinsapp voor huishoudens die leven over landen, talen en generaties heen. In de eerste plaats gebouwd voor expatgezinnen."
   },
   "header": { "cta": "Op de wachtlijst" },
   "hero": {
@@ -25,7 +25,7 @@
     "intro": "Als jij de ouder bent die weet wanneer de schoolvakantie begint, wanneer het paspoort van je kind verloopt en wat er ligt te ontdooien in de koelkast — dan draag jij de mentale last van een modern gezin.",
     "stats": [
       { "num": "71%", "text": "van de mentale taken in huis komt op één ouder neer — ongeacht inkomen of carrière." },
-      { "num": "70%", "text": "van de moeders in Europa noemt zichzelf <em>overbelast</em> — bijna de helft meldt angst of somberheid die daarmee samenhangt." },
+      { "num": "70%", "text": "van de moeders in Europa noemt zichzelf <em>overbelast</em> — bijna de helft meldt angst of depressie die daarmee samenhangt." },
       { "num": "82%", "text": "van de ouders heeft moeite om alle gezinsafspraken en verplichtingen bij te houden." },
       { "num": "56%", "text": "van de gezinnen heeft iets belangrijks gemist door een planningsconflict." }
     ],
@@ -53,7 +53,7 @@
       {
         "title": "Een bezoek, eindelijk in de agenda.",
         "you": "Stuur het bericht van je ouders in het buitenland over de vakantie door.",
-        "vesta": "Leest de data die ze voorstellen, legt ze naast de schoolvakanties van de kinderen en markeert de week die past.",
+        "vesta": "Leest de datums die ze voorstellen, legt ze naast de schoolvakanties van de kinderen en markeert de week die past.",
         "outcome": "Een bezoek over de grens in seconden vastgelegd, geen eindeloze mailwisseling."
       },
       {
@@ -75,13 +75,13 @@
       },
       {
         "title": "Je gezin, in jouw taal.",
-        "benefit": "Iedereen ziet hetzelfde gezinsleven in zijn eigen taal en tijdzone — zodat niemand buitenspel staat door een taal of een klok die niet de zijne is.",
+        "benefit": "Iedereen ziet hetzelfde gezinsleven in hun eigen taal en tijdzone — zodat niemand buitenspel staat door een taal of klok die niet van hen is.",
         "brief": "\"Een schoolbericht komt binnen in het Nederlands. Jij leest het in het Engels, oma leest het in het Turks — en het komt in elke agenda op de juiste lokale tijd.\""
       },
       {
         "title": "AI die het denkwerk doet.",
         "benefit": "Geen formulieren meer invullen: maak een foto, stuur een e-mail door of zeg het gewoon — en de juiste agenda's en to-dolijsten vullen zichzelf.",
-        "brief": "\"Woensdag zit vol — Lily's zwemles, de wekelijkse boodschappen en je vaste belletje met je ouders. Zal ik de boodschappen naar zaterdagochtend verplaatsen zodat de avond rustiger voelt?\""
+        "brief": "\"Woensdag zit vol — Lily's zwemles, de wekelijkse boodschappen en je vaste belletje met je ouders. Zal ik de boodschappen naar zaterdagochtend verplaatsen zodat de avond rustiger aanvoelt?\""
       },
       {
         "title": "Een rustige, behulpzame partner.",
@@ -115,7 +115,7 @@
   },
   "cta": {
     "eyebrow": "De wachtlijst",
-    "heading": "Wees als eerste <em class=\"text-accent not-italic\"><span class=\"italic\">binnen</span></em> bij Vesta.",
+    "heading": "Stap als eerste <em class=\"text-accent not-italic\"><span class=\"italic\">binnen</span></em> bij Vesta.",
     "body": "De besloten bèta opent later in 2026 voor vroege wachtlijstleden. Vertel ons waar je bent, dan geven we bèta-uitnodigingen daarop prioriteit.",
     "button": "Schrijf je in op de wachtlijst"
   },
@@ -129,7 +129,7 @@
       },
       {
         "q": "Voor wie is het?",
-        "a": "Moderne gezinnen met een leven over meerdere landen, talen of huishoudens. Als je gezin zich uitstrekt over landen, talen of huizen — dan is Vesta er voor jou, expat of niet."
+        "a": "Moderne gezinnen met een leven over meerdere landen, talen of huishoudens. Als je gezin verspreid is over landen, talen of huizen — dan is Vesta er voor jou, expat of niet."
       },
       {
         "q": "Wanneer komt het uit?",
@@ -157,7 +157,7 @@
       },
       {
         "q": "Wat gaat het kosten?",
-        "a": "Vesta krijgt een gratis laag met de essentiële coördinatiefuncties voor elk gezin. Premiumfuncties krijgen een eerlijke prijs in euro's — de details publiceren we dichter bij de lancering. Wachtlijstleden krijgen tijdens de bèta verlengde gratis toegang tot premiumfuncties."
+        "a": "Vesta krijgt een gratis versie met de essentiële coördinatiefuncties voor elk gezin. Premiumfuncties krijgen een eerlijke prijs in euro's — de details publiceren we dichter bij de lancering. Wachtlijstleden krijgen tijdens de bèta verlengde gratis toegang tot premiumfuncties."
       },
       {
         "q": "Zijn jullie aan het werven, financiering aan het ophalen of open voor samenwerkingen?",
