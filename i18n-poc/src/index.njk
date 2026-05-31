@@ -1,0 +1,757 @@
+---
+pagination:
+  data: locales
+  size: 1
+  alias: loc
+permalink: "{% if loc.isDefault %}index.html{% else %}{{ loc.code }}/index.html{% endif %}"
+---
+<!DOCTYPE html>
+<html lang="{{ loc.code }}" dir="{{ loc.dir }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ loc.t.meta.title }}</title>
+  <meta name="description" content="{{ loc.t.meta.description }}" />
+  <meta name="theme-color" content="#7a3a1d" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Canonical + hreflang alternates, generated per locale from the locales data -->
+  <link rel="canonical" href="{{ site.url }}{% if not loc.isDefault %}/{{ loc.code }}{% endif %}/" />
+  {%- for l in locales %}
+  <link rel="alternate" hreflang="{{ l.code }}" href="{{ site.url }}{% if not l.isDefault %}/{{ l.code }}{% endif %}/" />
+  {%- endfor %}
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ loc.t.meta.ogTitle }}" />
+  <meta property="og:description" content="{{ loc.t.meta.ogDescription }}" />
+  <meta property="og:url" content="{{ site.url }}{% if not loc.isDefault %}/{{ loc.code }}{% endif %}/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="{{ loc.ogLocale }}" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ loc.t.meta.ogTitle }}" />
+  <meta name="twitter:description" content="{{ loc.t.meta.ogDescription }}" />
+
+  <!-- Newsreader, served from Bunny Fonts (EU-hosted, GDPR-clean). Weights 300-700, regular + italic, optical-size axis. -->
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.bunny.net/css?family=newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&display=swap"
+  />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:    '#f4efe6',  // hero paper
+            paper2:   '#ede6d8',  // alternating sections
+            rule:     '#d8cfbe',  // hairlines
+            ink:      '#1f1a14',  // near-black warm — headings + dark section bg
+            ink2:     '#3a3127',  // softer body text
+            muted:    '#8a8175',  // captions, helper text
+            accent:   '#7a3a1d',  // deep terracotta
+            'accent-light': '#e6a880'  // lighter terracotta for dark section
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
+            sans:  ['Newsreader', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'serif']
+          },
+          letterSpacing: {
+            'editorial-eyebrow': '0.22em',
+            'editorial-mono': '0.18em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Tally embed (popup form) -->
+  <script async src="https://tally.so/widgets/embed.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-optical-sizing: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Optical-size hints per heading scale */
+    .opsz-display { font-variation-settings: "opsz" 72; }
+    .opsz-md      { font-variation-settings: "opsz" 36; }
+    .opsz-sm      { font-variation-settings: "opsz" 18; }
+
+    [data-tally-open] { cursor: pointer; }
+
+    /* FAQ accordion via native <details>/<summary> */
+    details > summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    details > summary::-webkit-details-marker { display: none; }
+    .acc-icon::before { content: '+'; display: inline-block; transition: transform 0.2s ease; }
+    details[open] .acc-icon::before { content: '–'; }
+
+    /* Soft fade-in on scroll for editorial sections */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.6s ease, transform 0.6s ease; }
+      .reveal.visible { opacity: 1; transform: none; }
+    }
+
+    /* Hero tree — external SVG silhouette. The SVG paints its canvas in our
+       page cream (#f4efe6), with the tree itself drawn in a 6-shade terracotta
+       gradient (deepest #6b2e15, lightest #b46844). Background-color fallback
+       is also cream so a load failure doesn't leave a coloured rectangle.
+       Responsive sizing: full presence on desktop, scaled down on smaller
+       screens so the city strip and other content stay visible. */
+    .hero-tree-bg {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60vw;
+      height: 70%;
+      background-color: #f4efe6;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    @media (min-width: 640px) {
+      .hero-tree-bg {
+        width: 60vw;
+        height: 88%;
+      }
+    }
+    @media (min-width: 1024px) {
+      .hero-tree-bg {
+        width: min(60vw, 820px);
+        height: 100%;
+      }
+    }
+    .hero-tree-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-ink font-serif antialiased">
+
+  <!-- ============================================== Header ============================================== -->
+  <header class="sticky top-0 z-40 border-b border-rule bg-cream/85 backdrop-blur">
+    <div class="max-w-5xl mx-auto px-6 sm:px-10 py-5 flex items-center justify-between gap-4">
+      <a href="{% if loc.isDefault %}/{% else %}/{{ loc.code }}/{% endif %}" class="font-serif italic text-2xl text-ink tracking-tight opsz-md">Vesta</a>
+      <div class="flex items-center gap-4 sm:gap-6">
+        <!-- Language switcher — links to the same page in each locale -->
+        <nav aria-label="Language" class="flex items-center gap-3 text-sm">
+          {%- for l in locales %}
+          {%- if l.code == loc.code %}
+          <span aria-current="true" class="font-serif italic text-ink">{{ l.label }}</span>
+          {%- else %}
+          <a href="{% if l.isDefault %}/{% else %}/{{ l.code }}/{% endif %}" hreflang="{{ l.code }}" lang="{{ l.code }}" class="font-serif italic text-muted hover:text-accent transition">{{ l.label }}</a>
+          {%- endif %}
+          {%- endfor %}
+        </nav>
+        <button
+          data-tally-open="kdv0Rd"
+          data-tally-layout="modal"
+          data-tally-overlay="1"
+          data-tally-auto-close="2000"
+          data-tally-emoji-text="👋"
+          data-tally-emoji-animation="wave"
+          class="inline-flex items-center px-5 py-2.5 bg-ink hover:bg-black text-cream text-sm font-medium rounded-full transition tracking-wide">
+          {{ loc.t.header.cta }}
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================== Hero · № 01 ============================================== -->
+    <section class="relative overflow-hidden px-6 sm:px-10 py-24 sm:py-32 border-b border-rule">
+
+      <!-- External tree silhouette SVG sourced and placed in the repo. The SVG
+           paints its canvas in cream that exactly matches the page background;
+           we put it over a terracotta-painted container so terracotta shows
+           through only where the tree-shaped negative space is. -->
+      <div class="hero-tree-bg" aria-hidden="true">
+        <img src="/tree.svg" alt=""/>
+      </div>
+
+      <div class="relative z-10 max-w-3xl mx-auto">
+
+        <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent mb-7 reveal">
+          № 01 &nbsp;·&nbsp; {{ loc.t.hero.eyebrow }}
+        </p>
+
+        <h1 class="font-serif opsz-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-ink font-normal leading-[1.04] tracking-tight mb-8 reveal" style="text-wrap: pretty;">
+          {{ loc.t.hero.headline | safe }}
+        </h1>
+
+        <p class="font-serif text-lg sm:text-xl md:text-2xl text-ink2 leading-relaxed font-light max-w-2xl mb-10 reveal">
+          {{ loc.t.hero.subhead | safe }}
+        </p>
+
+        <div class="mb-5 reveal">
+          <button
+            data-tally-open="kdv0Rd"
+            data-tally-layout="modal"
+            data-tally-overlay="1"
+            data-tally-auto-close="2000"
+            data-tally-emoji-text="👋"
+            data-tally-emoji-animation="wave"
+            class="inline-flex items-center gap-3 px-8 py-4 bg-ink hover:bg-black text-cream text-sm sm:text-base font-medium tracking-wide rounded-full transition">
+            {{ loc.t.hero.cta }}
+            <span class="text-base">→</span>
+          </button>
+        </div>
+        <p class="text-sm text-muted reveal">{{ loc.t.hero.noSpam }}</p>
+
+        <!-- City strip — multi-country reality in three small notes -->
+        <div class="mt-20 pt-7 border-t border-rule grid grid-cols-3 gap-4 sm:gap-8 reveal">
+          <div>
+            <div class="font-serif italic text-base sm:text-lg text-ink opsz-sm">Amsterdam</div>
+            <div class="text-[11px] sm:text-xs text-muted tracking-wide mt-1">{{ loc.t.hero.cities.amsterdam }}</div>
+          </div>
+          <div>
+            <div class="font-serif italic text-base sm:text-lg text-ink opsz-sm">Istanbul</div>
+            <div class="text-[11px] sm:text-xs text-muted tracking-wide mt-1">{{ loc.t.hero.cities.istanbul }}</div>
+          </div>
+          <div>
+            <div class="font-serif italic text-base sm:text-lg text-ink opsz-sm">London</div>
+            <div class="text-[11px] sm:text-xs text-muted tracking-wide mt-1">{{ loc.t.hero.cities.london }}</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== Mental load · № 02 ============================================== -->
+    <section class="px-6 sm:px-10 py-24 sm:py-32 bg-paper2 border-b border-rule">
+      <div class="max-w-3xl mx-auto">
+
+        <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent mb-7 reveal">
+          № 02 &nbsp;·&nbsp; {{ loc.t.s2.eyebrow }}
+        </p>
+
+        <h2 class="font-serif opsz-md text-3xl sm:text-4xl md:text-5xl text-ink font-normal leading-[1.1] tracking-tight mb-10 reveal" style="text-wrap: pretty;">
+          {{ loc.t.s2.heading | safe }}
+        </h2>
+
+        <p class="font-serif italic text-lg sm:text-xl text-ink2 leading-relaxed font-light max-w-2xl mb-16 reveal">
+          If you're the parent who knows when the school holiday starts, when your child's passport expires, and what's defrosting in the fridge — you're carrying the mental load of a modern family.
+        </p>
+
+        <!-- Stats: large serif terracotta numerals -->
+        <div class="border-t border-rule">
+
+          <div class="grid grid-cols-[auto_1fr] gap-x-6 sm:gap-x-10 gap-y-1 py-7 border-b border-rule reveal">
+            <div class="font-serif text-5xl sm:text-6xl md:text-7xl text-accent font-light leading-none tracking-tight">71%</div>
+            <div class="text-sm sm:text-base text-ink2 leading-relaxed font-light self-center max-w-md">
+              of household mental-load tasks fall on one parent — regardless of income or career.
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[auto_1fr] gap-x-6 sm:gap-x-10 gap-y-1 py-7 border-b border-rule reveal">
+            <div class="font-serif text-5xl sm:text-6xl md:text-7xl text-accent font-light leading-none tracking-tight">70%</div>
+            <div class="text-sm sm:text-base text-ink2 leading-relaxed font-light self-center max-w-md">
+              of mothers across Europe describe themselves as <em>overloaded</em> — nearly half report anxiety or depression linked to it.
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[auto_1fr] gap-x-6 sm:gap-x-10 gap-y-1 py-7 border-b border-rule reveal">
+            <div class="font-serif text-5xl sm:text-6xl md:text-7xl text-accent font-light leading-none tracking-tight">82%</div>
+            <div class="text-sm sm:text-base text-ink2 leading-relaxed font-light self-center max-w-md">
+              of parents struggle to keep track of family events and commitments.
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[auto_1fr] gap-x-6 sm:gap-x-10 gap-y-1 py-7 border-b border-rule reveal">
+            <div class="font-serif text-5xl sm:text-6xl md:text-7xl text-accent font-light leading-none tracking-tight">56%</div>
+            <div class="text-sm sm:text-base text-ink2 leading-relaxed font-light self-center max-w-md">
+              of families have missed something important because of a scheduling conflict.
+            </div>
+          </div>
+
+        </div>
+
+        <p class="font-serif text-base sm:text-lg text-ink2 leading-relaxed font-light mt-14 max-w-2xl reveal">
+          It's most often a mother who carries it — but in plenty of homes it's simply whoever runs the logistics: the parent who travels less, the single earner, the one who quietly became the family's organiser. Whoever it is in your home, the weight is real — and it shouldn't sit on one set of shoulders.
+        </p>
+
+        <p class="font-serif italic text-xl sm:text-2xl text-ink leading-relaxed mt-12 max-w-2xl font-light reveal">
+          Vesta exists to take that load off your head — and put it somewhere your whole family can share it.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ============================================== How it works · № 03 ============================================== -->
+    <section class="px-6 sm:px-10 py-24 sm:py-32 border-b border-rule">
+      <div class="max-w-3xl mx-auto">
+
+        <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent mb-7 reveal">
+          № 03 &nbsp;·&nbsp; {{ loc.t.s3.eyebrow }}
+        </p>
+
+        <h2 class="font-serif opsz-md text-3xl sm:text-4xl md:text-5xl text-ink font-normal leading-[1.1] tracking-tight mb-6 reveal" style="text-wrap: pretty;">
+          {{ loc.t.s3.heading | safe }}
+        </h2>
+
+        <p class="font-serif italic text-lg sm:text-xl text-ink2 leading-relaxed font-light max-w-2xl mb-14 reveal">
+          Not a list of features — a few ordinary moments, and what Vesta quietly does with them.
+        </p>
+
+        <!-- Cards: separated tiles, "You → Vesta → outcome" per moment -->
+        <div class="grid sm:grid-cols-2 gap-5 sm:gap-6 reveal">
+
+          <!-- 01 · Daily brief -->
+          <article class="border border-rule rounded-2xl p-7 sm:p-8">
+            <h3 class="font-serif text-2xl text-ink font-normal leading-snug tracking-tight mb-6">Your day, already sorted.</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-[3.75rem_1fr] gap-x-3 items-baseline">
+                <span class="text-[10px] font-semibold tracking-editorial-eyebrow uppercase text-muted">You</span>
+                <span class="text-sm sm:text-base text-ink2 leading-relaxed font-light">Open the app over coffee.</span>
+              </div>
+              <div class="grid grid-cols-[3.75rem_1fr] gap-x-3 items-baseline">
+                <span class="text-[10px] font-semibold tracking-editorial-eyebrow uppercase text-accent">Vesta</span>
+                <span class="text-sm sm:text-base text-ink2 leading-relaxed font-light">Today in one view: swimming at 4, the parcel to sign for, dinner at your mum's — pulled from every household calendar, in your language.</span>
+              </div>
+            </div>
+            <p class="font-serif italic text-base text-ink leading-relaxed font-light mt-6 pt-5 border-t border-rule">
+              One glance instead of five apps and a mental tally.
+            </p>
+          </article>
+
+          <!-- 02 · Capture from flyers -->
+          <article class="border border-rule rounded-2xl p-7 sm:p-8">
+            <h3 class="font-serif text-2xl text-ink font-normal leading-snug tracking-tight mb-6">Two kids, two schedules.</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-[3.75rem_1fr] gap-x-3 items-baseline">
+                <span class="text-[10px] font-semibold tracking-editorial-eyebrow uppercase text-muted">You</span>
+                <span class="text-sm sm:text-base text-ink2 leading-relaxed font-light">Snap the school flyers as they come home.</span>
+              </div>
+              <div class="grid grid-cols-[3.75rem_1fr] gap-x-3 items-baseline">
+                <span class="text-[10px] font-semibold tracking-editorial-eyebrow uppercase text-accent">Vesta</span>
+                <span class="text-sm sm:text-base text-ink2 leading-relaxed font-light">Swimming, the dentist, the class-trip deposit due Friday — each on the right child's calendar, deadline and all.</span>
+              </div>
+            </div>
+            <p class="font-serif italic text-base text-ink leading-relaxed font-light mt-6 pt-5 border-t border-rule">
+              You stop being the family's data-entry clerk.
+            </p>
+          </article>
+
+          <!-- 03 · Cross-border visit -->
+          <article class="border border-rule rounded-2xl p-7 sm:p-8">
+            <h3 class="font-serif text-2xl text-ink font-normal leading-snug tracking-tight mb-6">A visit, finally on the calendar.</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-[3.75rem_1fr] gap-x-3 items-baseline">
+                <span class="text-[10px] font-semibold tracking-editorial-eyebrow uppercase text-muted">You</span>
+                <span class="text-sm sm:text-base text-ink2 leading-relaxed font-light">Forward the message from your parents abroad about half-term.</span>
+              </div>
+              <div class="grid grid-cols-[3.75rem_1fr] gap-x-3 items-baseline">
+                <span class="text-[10px] font-semibold tracking-editorial-eyebrow uppercase text-accent">Vesta</span>
+                <span class="text-sm sm:text-base text-ink2 leading-relaxed font-light">Reads the dates they suggest, lines them up against the kids' school holidays, and flags the week that works.</span>
+              </div>
+            </div>
+            <p class="font-serif italic text-base text-ink leading-relaxed font-light mt-6 pt-5 border-t border-rule">
+              A cross-border visit pinned down in seconds, not an email chain.
+            </p>
+          </article>
+
+          <!-- 04 · Budget / Fun Time -->
+          <article class="border border-rule rounded-2xl p-7 sm:p-8">
+            <h3 class="font-serif text-2xl text-ink font-normal leading-snug tracking-tight mb-6">See what's left to enjoy.</h3>
+            <div class="space-y-4">
+              <div class="grid grid-cols-[3.75rem_1fr] gap-x-3 items-baseline">
+                <span class="text-[10px] font-semibold tracking-editorial-eyebrow uppercase text-muted">You</span>
+                <span class="text-sm sm:text-base text-ink2 leading-relaxed font-light">Log the week's spending — <em class="italic">"€45 groceries Lidl."</em></span>
+              </div>
+              <div class="grid grid-cols-[3.75rem_1fr] gap-x-3 items-baseline">
+                <span class="text-[10px] font-semibold tracking-editorial-eyebrow uppercase text-accent">Vesta</span>
+                <span class="text-sm sm:text-base text-ink2 leading-relaxed font-light"><em class="italic">"€980 of Fun Time left, 12 days to go — about €80 a day."</em> And: <em class="italic">"Mum's birthday next week — set money aside?"</em></span>
+              </div>
+            </div>
+            <p class="font-serif italic text-base text-ink leading-relaxed font-light mt-6 pt-5 border-t border-rule">
+              Budgeting that feels like permission, not restriction.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== Principles · № 04 ============================================== -->
+    <section class="px-6 sm:px-10 py-24 sm:py-32 bg-paper2 border-b border-rule">
+      <div class="max-w-3xl mx-auto">
+
+        <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent mb-7 reveal">
+          № 04 &nbsp;·&nbsp; {{ loc.t.s4.eyebrow }}
+        </p>
+
+        <h2 class="font-serif opsz-md text-3xl sm:text-4xl md:text-5xl text-ink font-normal leading-[1.1] tracking-tight mb-16 reveal" style="text-wrap: pretty;">
+          {{ loc.t.s4.heading | safe }}
+        </h2>
+
+        <!-- Principle 01 -->
+        <article class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-10 border-t border-rule reveal">
+          <div class="font-serif italic text-2xl sm:text-3xl text-accent font-light leading-none opsz-sm">01.</div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug tracking-tight mb-4">One person, many households.</h3>
+            <p class="font-serif text-base sm:text-lg text-ink leading-relaxed font-light mb-4">
+              One login holds every household you belong to — your home, your parents' place abroad, a co-parent's home — so there's no separate app or group chat for each side of the family.
+            </p>
+            <blockquote class="border-l-2 border-accent pl-5 py-1 font-serif italic text-base sm:text-lg text-ink2 leading-relaxed font-light">
+              "Today, across your households: Noa's dentist at 4, your mum's flight lands at 2, and you're back from the Berlin trip Friday."
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- Principle 02 -->
+        <article class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-10 border-t border-rule reveal">
+          <div class="font-serif italic text-2xl sm:text-3xl text-accent font-light leading-none opsz-sm">02.</div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug tracking-tight mb-4">Your family, in your language.</h3>
+            <p class="font-serif text-base sm:text-lg text-ink leading-relaxed font-light mb-4">
+              Everyone sees the same family life in their own language and timezone — so no one's left out by a language or a clock that isn't theirs.
+            </p>
+            <blockquote class="border-l-2 border-accent pl-5 py-1 font-serif italic text-base sm:text-lg text-ink2 leading-relaxed font-light">
+              "A school notice arrives in Dutch. You read it in English, Grandma reads it in Turkish — and it lands in each calendar at the right local time."
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- Principle 03 -->
+        <article class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-10 border-t border-rule reveal">
+          <div class="font-serif italic text-2xl sm:text-3xl text-accent font-light leading-none opsz-sm">03.</div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug tracking-tight mb-4">AI that does the thinking.</h3>
+            <p class="font-serif text-base sm:text-lg text-ink leading-relaxed font-light mb-4">
+              Stop typing life into forms: snap a flyer, forward an email, or just say it — and the right calendars and to-do lists fill themselves in.
+            </p>
+            <blockquote class="border-l-2 border-accent pl-5 py-1 font-serif italic text-base sm:text-lg text-ink2 leading-relaxed font-light">
+              "Wednesday is stacked — Lily's swimming lesson, the weekly shop, and your usual catch-up with your parents. Want me to move the shop to Saturday morning so the evening feels less rushed?"
+            </blockquote>
+          </div>
+        </article>
+
+        <!-- Principle 04 -->
+        <article class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-10 border-t border-b border-rule reveal">
+          <div class="font-serif italic text-2xl sm:text-3xl text-accent font-light leading-none opsz-sm">04.</div>
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug tracking-tight mb-4">A quiet, helpful partner.</h3>
+            <p class="font-serif text-base sm:text-lg text-ink leading-relaxed font-light mb-4">
+              Help arrives when it actually counts and stays quiet when it doesn't — none of the badge-spam and notification noise other apps bury you in.
+            </p>
+            <blockquote class="border-l-2 border-accent pl-5 py-1 font-serif italic text-base sm:text-lg text-ink2 leading-relaxed font-light">
+              "A quiet day stays quiet. One note at six: 'Bins out tonight — otherwise, you're all caught up.'"
+            </blockquote>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============================================== Multi-country · № 05 (DARK) ============================================== -->
+    <section class="px-6 sm:px-10 py-24 sm:py-32 bg-ink text-cream">
+      <div class="max-w-3xl mx-auto">
+
+        <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent-light mb-7 reveal">
+          № 05 &nbsp;·&nbsp; {{ loc.t.s5.eyebrow }}
+        </p>
+
+        <h2 class="font-serif opsz-md text-3xl sm:text-4xl md:text-5xl text-cream font-normal leading-[1.08] tracking-tight mb-12 reveal" style="text-wrap: pretty;">
+          {{ loc.t.s5.heading | safe }}
+        </h2>
+
+        <!-- Shapes — small mono-styled numbers + italic serif reality -->
+        <div class="border-t border-cream/15">
+
+          <div class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-5 sm:py-6 border-b border-cream/15 reveal items-baseline">
+            <div class="font-serif text-xs sm:text-sm text-accent-light tracking-editorial-mono pt-1">01</div>
+            <div class="font-serif italic text-lg sm:text-xl text-cream leading-snug font-light">
+              Parents abroad, grandparents back home, summers in a third country.
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-5 sm:py-6 border-b border-cream/15 reveal items-baseline">
+            <div class="font-serif text-xs sm:text-sm text-accent-light tracking-editorial-mono pt-1">02</div>
+            <div class="font-serif italic text-lg sm:text-xl text-cream leading-snug font-light">
+              One parent travels for work most weeks; the other holds the home.
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-5 sm:py-6 border-b border-cream/15 reveal items-baseline">
+            <div class="font-serif text-xs sm:text-sm text-accent-light tracking-editorial-mono pt-1">03</div>
+            <div class="font-serif italic text-lg sm:text-xl text-cream leading-snug font-light">
+              Co-parents across two countries with kids who move between both.
+            </div>
+          </div>
+
+          <div class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-5 sm:py-6 border-b border-cream/15 reveal items-baseline">
+            <div class="font-serif text-xs sm:text-sm text-accent-light tracking-editorial-mono pt-1">04</div>
+            <div class="font-serif italic text-lg sm:text-xl text-cream leading-snug font-light">
+              Cross-border families coordinating birthdays, school holidays, and visits across three timezones.
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3-degree social graph callout -->
+        <div class="mt-12 pb-2 reveal">
+          <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent-light mb-4">
+            The 3-degree social graph
+          </p>
+          <p class="font-serif text-lg sm:text-xl text-cream/95 leading-relaxed font-light max-w-2xl">
+            Message and coordinate with extended family who aren't in your household — your aunt, your child's other grandparent, your best friend who's basically family — without making them set up another account or join a new group chat.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== Trust · № 06 ============================================== -->
+    <section class="px-6 sm:px-10 py-24 sm:py-32 border-b border-rule">
+      <div class="max-w-3xl mx-auto">
+
+        <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent mb-7 reveal">
+          № 06 &nbsp;·&nbsp; {{ loc.t.s6.eyebrow }}
+        </p>
+
+        <h2 class="font-serif opsz-md text-3xl sm:text-4xl md:text-5xl text-ink font-normal leading-[1.1] tracking-tight mb-6 reveal" style="text-wrap: pretty;">
+          {{ loc.t.s6.heading | safe }}
+        </h2>
+
+        <p class="font-serif italic text-lg sm:text-xl text-ink2 leading-relaxed font-light max-w-2xl mb-12 reveal">
+          Vesta is independent, family-funded, and built for the long term.
+        </p>
+
+        <div class="border-t border-rule">
+          <div class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-6 border-b border-rule reveal">
+            <div class="font-serif text-xs sm:text-sm text-muted tracking-editorial-mono pt-1.5">01</div>
+            <div>
+              <div class="font-serif italic text-lg sm:text-xl text-ink leading-snug">EU data residency</div>
+              <div class="text-sm sm:text-base text-ink2 leading-relaxed font-light mt-1.5">Your family's data lives in EU data centres.</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-6 border-b border-rule reveal">
+            <div class="font-serif text-xs sm:text-sm text-muted tracking-editorial-mono pt-1.5">02</div>
+            <div>
+              <div class="font-serif italic text-lg sm:text-xl text-ink leading-snug">Scoped to your household</div>
+              <div class="text-sm sm:text-base text-ink2 leading-relaxed font-light mt-1.5">Only the people you invite can see it.</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-6 border-b border-rule reveal">
+            <div class="font-serif text-xs sm:text-sm text-muted tracking-editorial-mono pt-1.5">03</div>
+            <div>
+              <div class="font-serif italic text-lg sm:text-xl text-ink leading-snug">Never sold or mined</div>
+              <div class="text-sm sm:text-base text-ink2 leading-relaxed font-light mt-1.5">Never used to train someone else's models.</div>
+            </div>
+          </div>
+          <div class="grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-8 py-6 border-b border-rule reveal">
+            <div class="font-serif text-xs sm:text-sm text-muted tracking-editorial-mono pt-1.5">04</div>
+            <div>
+              <div class="font-serif italic text-lg sm:text-xl text-ink leading-snug">No third-party trackers</div>
+              <div class="text-sm sm:text-base text-ink2 leading-relaxed font-light mt-1.5">Your activity stays inside your household, never followed across the web.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================== CTA · № 07 ============================================== -->
+    <section class="px-6 sm:px-10 py-24 sm:py-32 bg-paper2 border-b border-rule">
+      <div class="max-w-2xl mx-auto text-center">
+
+        <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent mb-7 reveal">
+          № 07 &nbsp;·&nbsp; {{ loc.t.cta.eyebrow }}
+        </p>
+
+        <h2 class="font-serif opsz-md text-4xl sm:text-5xl md:text-6xl text-ink font-normal leading-[1.05] tracking-tight mb-6 reveal" style="text-wrap: pretty;">
+          {{ loc.t.cta.heading | safe }}
+        </h2>
+
+        <p class="font-serif italic text-lg sm:text-xl text-ink2 leading-relaxed font-light mb-10 reveal">
+          {{ loc.t.cta.body }}
+        </p>
+
+        <button
+          data-tally-open="kdv0Rd"
+          data-tally-layout="modal"
+          data-tally-overlay="1"
+          data-tally-auto-close="2000"
+          data-tally-emoji-text="👋"
+          data-tally-emoji-animation="wave"
+          class="inline-flex items-center gap-3 px-8 py-4 bg-ink hover:bg-black text-cream text-sm sm:text-base font-medium tracking-wide rounded-full transition reveal">
+          {{ loc.t.cta.button }}
+          <span class="text-base">→</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- ============================================== FAQ · № 08 ============================================== -->
+    <section class="px-6 sm:px-10 py-24 sm:py-32">
+      <div class="max-w-3xl mx-auto">
+
+        <p class="text-[11px] sm:text-xs font-semibold tracking-editorial-eyebrow uppercase text-accent mb-7 reveal">
+          № 08 &nbsp;·&nbsp; {{ loc.t.faq.eyebrow }}
+        </p>
+
+        <h2 class="font-serif opsz-md text-3xl sm:text-4xl md:text-5xl text-ink font-normal leading-[1.1] tracking-tight mb-12 reveal" style="text-wrap: pretty;">
+          {{ loc.t.faq.heading | safe }}
+        </h2>
+
+        <div class="border-t border-rule">
+
+          <details open class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">What is Vesta?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              A family management app — calendar, tasks, lists, photos, budget, and household chat — built around an AI that takes the mental load off the parent who's been carrying it. Mobile-first.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">Who is it for?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              Modern families with multi-country, multilingual, or multi-household lives. If your family lives across countries, languages, or homes — Vesta is for you, expat or not.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">When will it launch?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              We're currently in build, with private beta opening to early waitlist members in 2026. Public launch follows once we're confident the product holds up for real families.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">How is it different from Apple Family Sharing or Google Family Link?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              Those tools assume every family member shares the same home country. Vesta is built for families that live across countries, languages, and timezones from day one — and adds a real coordination layer on top: tasks, photos, household budget, and chat in one place.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">How is it different from other family apps?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              Vesta is European-built, multi-household by design (one account spans every household you belong to), multilingual per family member, AI-native, and GDPR-by-design. That combination is what makes Vesta the right fit for cross-border, multilingual, modern families.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">Will it be available in my language?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              Vesta launches in English, with Dutch following shortly after. German, French, and Turkish are next on the roadmap. Tell us your preferred language when you join the waitlist — we use that to prioritise.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">Will my family's data be safe?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              Yes. Vesta is GDPR-native, with EU data residency, no third-party tracking, and no selling of your data. Your household's data is scoped to your household, and you can export or delete it at any time.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">What about elderly relatives who aren't tech-savvy?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              Vesta is being designed so that a grandparent on a basic smartphone in another country can participate without an account-setup ordeal. Receiving photos, seeing a shared calendar, joining a family chat — that should be effortless on Day 1.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">How much will it cost?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              Vesta will have a free tier covering the essential coordination features for every family. Premium features will be priced fairly in EUR — we'll publish the details closer to launch. Waitlist members get extended free access to premium features during beta.
+            </p>
+          </details>
+
+          <details class="border-b border-rule reveal">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">Are you hiring, fundraising, or open to partnerships?</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              We're independent and intend to stay that way. If you're an international school, an expat-community publisher, an HR mobility lead at a NL employer, or a relocation specialist — and you'd like to be involved in the beta — drop us a line at <a href="mailto:hello@vesta.social" class="text-accent hover:text-ink underline decoration-accent/30 hover:decoration-ink/50 underline-offset-4">hello@vesta.social</a>.
+            </p>
+          </details>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================== Footer ============================================== -->
+  <footer class="px-6 sm:px-10 py-14 bg-paper2 border-t border-rule">
+    <div class="max-w-3xl mx-auto flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-6">
+      <p class="font-serif italic text-base sm:text-lg text-ink2 leading-relaxed max-w-md">
+        {{ loc.t.footer.tagline }}
+      </p>
+      <div class="text-xs sm:text-sm text-muted text-left sm:text-right space-y-1.5">
+        <div><a href="mailto:hello@vesta.social" class="hover:text-accent transition">hello@vesta.social</a></div>
+        <div>{{ loc.t.footer.builtIn }}</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll-reveal: progressive enhancement; no-JS users see content normally -->
+  <script>
+    (function () {
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>

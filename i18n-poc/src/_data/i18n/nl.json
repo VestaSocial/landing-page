@@ -1,0 +1,56 @@
+{
+  "_note": "DRAFT translation for the PoC — needs review by a native Dutch copywriter (transcreation, not literal MT).",
+  "meta": {
+    "title": "Vesta — Gezinsleven over landen, talen en generaties heen",
+    "description": "De AI-native gezinsapp voor huishoudens die zich uitstrekken over landen, talen en generaties. Allereerst gebouwd voor expatgezinnen. Schrijf je in voor de wachtlijst van de besloten bèta.",
+    "ogTitle": "Vesta — Gezinsleven over landen, talen en generaties heen",
+    "ogDescription": "De AI-native gezinsapp voor huishoudens die zich uitstrekken over landen, talen en generaties. Allereerst gebouwd voor expatgezinnen."
+  },
+  "header": { "cta": "Op de wachtlijst" },
+  "hero": {
+    "eyebrow": "Een gezinsapp, maar dan rustiger",
+    "headline": "Modern gezinsleven is meer dan <em class=\"text-accent not-italic\"><span class=\"italic\">één hoofd</span></em> kan onthouden.",
+    "subhead": "De <span class=\"text-ink\">AI-gedreven gezinsapp</span> die de mentale last van je gezin draagt, zodat niemand die alleen hoeft te dragen.",
+    "cta": "Schrijf je in op de wachtlijst",
+    "noSpam": "Geen spam. Nooit je gegevens verkocht, aan niemand.",
+    "cities": {
+      "amsterdam": "— thuisbasis",
+      "istanbul": "— grootouders",
+      "london": "— oudste studeert"
+    }
+  },
+  "s2": {
+    "eyebrow": "De mentale last",
+    "heading": "Het komt bijna altijd neer op <em class=\"text-accent not-italic\"><span class=\"italic\">één persoon.</span></em>"
+  },
+  "s3": {
+    "eyebrow": "Hoe het werkt",
+    "heading": "Hoe een week er <em class=\"text-accent not-italic\"><span class=\"italic\">echt</span></em> uitziet."
+  },
+  "s4": {
+    "eyebrow": "Wat Vesta anders maakt",
+    "heading": "Vier ideeën die elk scherm vormgeven."
+  },
+  "s5": {
+    "eyebrow": "Over grenzen heen",
+    "heading": "Gebouwd voor gezinnen die <em class=\"text-accent-light not-italic\"><span class=\"italic\">niet passen</span></em> in één land."
+  },
+  "s6": {
+    "eyebrow": "Gebouwd in Europa",
+    "heading": "AVG by design. <em class=\"text-accent not-italic\"><span class=\"italic\">Jouw data, alleen van jou.</span></em>"
+  },
+  "cta": {
+    "eyebrow": "De wachtlijst",
+    "heading": "Wees als eerste <em class=\"text-accent not-italic\"><span class=\"italic\">binnen</span></em> bij Vesta.",
+    "body": "De besloten bèta opent later in 2026 voor vroege wachtlijstleden. Vertel ons waar je bent, dan geven we bèta-uitnodigingen daarop prioriteit.",
+    "button": "Schrijf je in op de wachtlijst"
+  },
+  "faq": {
+    "eyebrow": "Vragen",
+    "heading": "Vragen, <em class=\"text-accent not-italic\"><span class=\"italic\">eerlijk beantwoord.</span></em>"
+  },
+  "footer": {
+    "tagline": "Vesta — vernoemd naar de Romeinse godin van huis en haard.",
+    "builtIn": "Gebouwd in Amsterdam, Nederland."
+  }
+}

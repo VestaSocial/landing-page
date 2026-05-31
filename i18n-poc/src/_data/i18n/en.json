@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "Vesta — Family life across countries, languages, and generations",
+    "description": "The AI-native family app for households that live across countries, languages, and generations. Built for expat families first. Join the waitlist for private beta.",
+    "ogTitle": "Vesta — Family life across countries, languages, and generations",
+    "ogDescription": "The AI-native family app for households that live across countries, languages, and generations. Built for expat families first."
+  },
+  "header": { "cta": "Join the waitlist" },
+  "hero": {
+    "eyebrow": "A family app, but quieter",
+    "headline": "Modern family life is more than <em class=\"text-accent not-italic\"><span class=\"italic\">one head</span></em> can hold.",
+    "subhead": "The <span class=\"text-ink\">AI-powered family app</span> that carries your family's mental load, so no one carries it alone.",
+    "cta": "Join the waitlist",
+    "noSpam": "No spam. No selling your data to anyone, ever.",
+    "cities": {
+      "amsterdam": "— home base",
+      "istanbul": "— grandparents",
+      "london": "— eldest at uni"
+    }
+  },
+  "s2": {
+    "eyebrow": "The mental load",
+    "heading": "It almost always falls on <em class=\"text-accent not-italic\"><span class=\"italic\">one person.</span></em>"
+  },
+  "s3": {
+    "eyebrow": "How it works",
+    "heading": "What a week <em class=\"text-accent not-italic\"><span class=\"italic\">actually</span></em> looks like."
+  },
+  "s4": {
+    "eyebrow": "What makes Vesta different",
+    "heading": "Four ideas that shape every screen."
+  },
+  "s5": {
+    "eyebrow": "Across borders",
+    "heading": "Built for families that <em class=\"text-accent-light not-italic\"><span class=\"italic\">don't fit</span></em> in one country."
+  },
+  "s6": {
+    "eyebrow": "Built in Europe",
+    "heading": "GDPR by design. <em class=\"text-accent not-italic\"><span class=\"italic\">Your data, yours alone.</span></em>"
+  },
+  "cta": {
+    "eyebrow": "The waitlist",
+    "heading": "Be first <em class=\"text-accent not-italic\"><span class=\"italic\">into</span></em> Vesta.",
+    "body": "Private beta opens to early waitlist members later in 2026. Tell us where you are and we'll prioritise beta invites accordingly.",
+    "button": "Join the waitlist"
+  },
+  "faq": {
+    "eyebrow": "Questions",
+    "heading": "Questions, <em class=\"text-accent not-italic\"><span class=\"italic\">answered honestly.</span></em>"
+  },
+  "footer": {
+    "tagline": "Vesta — named after the Roman goddess of home and family.",
+    "builtIn": "Built in Amsterdam, the Netherlands."
+  }
+}
