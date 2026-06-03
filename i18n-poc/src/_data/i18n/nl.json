@@ -1,10 +1,10 @@
 {
   "_note": "DRAFT translation for the PoC — needs review by a native Dutch copywriter (transcreation, not literal MT). 'Fun Time' kept as the product term; GDPR rendered as AVG.",
   "meta": {
-    "title": "Vesta — Gezinsleven over landen, talen en generaties heen",
-    "description": "De AI-native gezinsapp voor huishoudens die leven over landen, talen en generaties heen. In de eerste plaats gebouwd voor expatgezinnen. Schrijf je in voor de wachtlijst van de besloten bèta.",
-    "ogTitle": "Vesta — Gezinsleven over landen, talen en generaties heen",
-    "ogDescription": "De AI-native gezinsapp voor huishoudens die leven over landen, talen en generaties heen. In de eerste plaats gebouwd voor expatgezinnen."
+    "title": "Vesta — De AI-gezinsapp die de mentale last draagt",
+    "description": "De AI-gestuurde gezinsapp die de mentale last van je gezin draagt, zodat niemand die alleen draagt — over steden, landen en talen heen. Schrijf je in voor de wachtlijst.",
+    "ogTitle": "Vesta — De AI-gezinsapp die de mentale last draagt",
+    "ogDescription": "De AI-gestuurde gezinsapp die de mentale last van je gezin draagt, zodat niemand die alleen draagt — over steden, landen en talen heen."
   },
   "header": { "cta": "Op de wachtlijst" },
   "hero": {
@@ -66,11 +66,11 @@
   },
   "s4": {
     "eyebrow": "Wat Vesta anders maakt",
-    "heading": "Vier ideeën die elk scherm vormgeven.",
+    "heading": "Vier ideeën die elke ervaring vormgeven.",
     "principles": [
       {
         "title": "Eén persoon, meerdere huishoudens.",
-        "benefit": "Eén login omvat elk huishouden waar je bij hoort — je eigen huis, het huis van je ouders in het buitenland, het huis van een mede-ouder — zodat er geen aparte app of groepschat is voor elke kant van de familie.",
+        "benefit": "Eén login omvat elk huishouden waar je bij hoort — je eigen huis, het huis van je ouders in het buitenland, een gedeeld studentenhuis — zodat er geen aparte app of groepschat is voor elke kant van de familie.",
         "brief": "\"Vandaag, verspreid over je huishoudens: Noa naar de tandarts om 4 uur, de vlucht van je moeder landt om 2 uur, en jij bent vrijdag terug van de reis naar Berlijn.\""
       },
       {
@@ -91,13 +91,13 @@
     ]
   },
   "s5": {
-    "eyebrow": "Over grenzen heen",
-    "heading": "Gebouwd voor gezinnen die <em class=\"text-accent-light not-italic\"><span class=\"italic\">niet passen</span></em> in één land.",
+    "eyebrow": "Dichtbij en ver weg",
+    "heading": "Gebouwd voor gezinnen die niet allemaal onder <em class=\"text-accent-light not-italic\"><span class=\"italic\">één dak</span></em> wonen.",
     "shapes": [
-      "Ouders in het buitenland, grootouders thuis, zomers in een derde land.",
-      "De ene ouder reist de meeste weken voor werk; de ander houdt het huis draaiende.",
-      "Mede-ouders in twee landen, met kinderen die tussen beide heen en weer gaan.",
-      "Gezinnen over de grens die verjaardagen, schoolvakanties en bezoeken afstemmen over drie tijdzones."
+      "De ene ouder is de meeste weken weg voor werk, de ander houdt thuis het ritme erin.",
+      "Grootouders een paar steden verderop, neefjes en nichtjes een paar landen verderop — iedereen blijft op de hoogte.",
+      "Een gedeeld studentenhuis — huur, klusjes en de agenda, samen op één lijn.",
+      "Verjaardagen, schoolritjes en bezoeken afgestemd over tijdzones — of gewoon verderop in de stad."
     ],
     "graphEyebrow": "De sociale graaf van 3 graden",
     "graphBody": "Stuur berichten naar en stem af met familie buiten je huishouden — je tante, de andere grootouder van je kind, je beste vriend die eigenlijk familie is — zonder dat zij een nieuw account hoeven aan te maken of zich bij een nieuwe groepschat moeten voegen."
