@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Vesta — Family life across countries, languages, and generations",
-    "description": "The AI-native family app for households that live across countries, languages, and generations. Built for expat families first. Join the waitlist for private beta.",
-    "ogTitle": "Vesta — Family life across countries, languages, and generations",
-    "ogDescription": "The AI-native family app for households that live across countries, languages, and generations. Built for expat families first."
+    "title": "Vesta — The AI family app that carries the mental load",
+    "description": "The AI-powered family app that carries your family's mental load, so no one carries it alone — across cities, countries, and languages. Join the waitlist.",
+    "ogTitle": "Vesta — The AI family app that carries the mental load",
+    "ogDescription": "The AI-powered family app that carries your family's mental load, so no one carries it alone — across cities, countries, and languages."
   },
   "header": { "cta": "Join the waitlist" },
   "hero": {
@@ -65,11 +65,11 @@
   },
   "s4": {
     "eyebrow": "What makes Vesta different",
-    "heading": "Four ideas that shape every screen.",
+    "heading": "Four ideas that shape every experience.",
     "principles": [
       {
         "title": "One person, many households.",
-        "benefit": "One login holds every household you belong to — your home, your parents' place abroad, a co-parent's home — so there's no separate app or group chat for each side of the family.",
+        "benefit": "One login holds every household you belong to — your home, your parents' place abroad, a shared flat at uni — so there's no separate app or group chat for each side of the family.",
         "brief": "\"Today, across your households: Noa's dentist at 4, your mum's flight lands at 2, and you're back from the Berlin trip Friday.\""
       },
       {
@@ -90,13 +90,13 @@
     ]
   },
   "s5": {
-    "eyebrow": "Across borders",
-    "heading": "Built for families that <em class=\"text-accent-light not-italic\"><span class=\"italic\">don't fit</span></em> in one country.",
+    "eyebrow": "Near and far",
+    "heading": "Built for families that don't all live <em class=\"text-accent-light not-italic\"><span class=\"italic\">under one roof.</span></em>",
     "shapes": [
-      "Parents abroad, grandparents back home, summers in a third country.",
-      "One parent travels for work most weeks; the other holds the home.",
-      "Co-parents across two countries with kids who move between both.",
-      "Cross-border families coordinating birthdays, school holidays, and visits across three timezones."
+      "A parent away for work most weeks, the other keeping the rhythm at home.",
+      "Grandparents a few cities over, cousins a couple of countries away — everyone still in the loop.",
+      "A shared flat at uni — rent, chores, and the calendar, kept in sync.",
+      "Birthdays, school runs, and visits coordinated across time zones — or just across town."
     ],
     "graphEyebrow": "The 3-degree social graph",
     "graphBody": "Message and coordinate with extended family who aren't in your household — your aunt, your child's other grandparent, your best friend who's basically family — without making them set up another account or join a new group chat."
