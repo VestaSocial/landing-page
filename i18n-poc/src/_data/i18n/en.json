@@ -5,7 +5,7 @@
     "ogTitle": "Vesta — The AI family app that carries the mental load",
     "ogDescription": "The AI-powered family app that carries your family's mental load, so no one carries it alone — across cities, countries, and languages."
   },
-  "header": { "cta": "Join the waitlist" },
+  "header": { "cta": "Join the waitlist", "ctaShort": "Join" },
   "hero": {
     "eyebrow": "A family app, but quieter",
     "headline": "Modern family life is more than <em class=\"text-accent not-italic\"><span class=\"italic\">one head</span></em> can hold.",

@@ -153,6 +153,8 @@ permalink: "{% if loc.isDefault %}index.html{% else %}{{ loc.code }}/index.html{
     <div class="max-w-5xl mx-auto px-6 sm:px-10 py-5 flex items-center justify-between gap-4">
       <a href="{% if loc.isDefault %}/{% else %}/{{ loc.code }}/{% endif %}" class="font-serif italic text-2xl text-ink tracking-tight opsz-md">Vesta</a>
       <div class="flex items-center gap-4 sm:gap-6">
+        <!-- Guides — always-visible nav link (English label for now; localizable later) -->
+        <a href="/guides/" class="text-[11px] font-semibold tracking-editorial-eyebrow uppercase text-ink2 hover:text-accent transition">Guides</a>
         <!-- Language switcher — compact dropdown of the current locale code -->
         <nav aria-label="Language">
           <details class="lang-switch relative">
@@ -179,8 +181,9 @@ permalink: "{% if loc.isDefault %}index.html{% else %}{{ loc.code }}/index.html{
           data-tally-auto-close="2000"
           data-tally-emoji-text="👋"
           data-tally-emoji-animation="wave"
-          class="inline-flex items-center px-5 py-2.5 bg-ink hover:bg-black text-cream text-sm font-medium rounded-full transition tracking-wide">
-          {{ loc.t.header.cta }}
+          class="inline-flex items-center px-4 sm:px-5 py-2.5 bg-ink hover:bg-black text-cream text-sm font-medium rounded-full transition tracking-wide">
+          <span class="sm:hidden inline-flex items-center gap-1.5">{{ loc.t.header.ctaShort }}<span aria-hidden="true" class="text-xs">→</span></span>
+          <span class="hidden sm:inline">{{ loc.t.header.cta }}</span>
         </button>
       </div>
     </div>

@@ -6,7 +6,7 @@
     "ogTitle": "Vesta — Die KI-Familienapp, die den Mental Load trägt",
     "ogDescription": "Die KI-gestützte Familienapp, die den Mental Load deiner Familie trägt, damit ihn niemand allein trägt — über Städte, Länder und Sprachen hinweg."
   },
-  "header": { "cta": "Auf die Warteliste" },
+  "header": { "cta": "Auf die Warteliste", "ctaShort": "Eintragen" },
   "hero": {
     "eyebrow": "Eine Familienapp, nur leiser",
     "headline": "Modernes Familienleben ist mehr, als in <em class=\"text-accent not-italic\"><span class=\"italic\">einen Kopf</span></em> passt.",
