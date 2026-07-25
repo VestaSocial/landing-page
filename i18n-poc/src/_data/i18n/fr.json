@@ -6,7 +6,7 @@
     "ogTitle": "Vesta — L'appli familiale IA qui porte la charge mentale",
     "ogDescription": "L'appli familiale propulsée par l'IA qui porte la charge mentale de ta famille, pour que personne ne la porte seul — par-delà les villes, les pays et les langues."
   },
-  "header": { "cta": "Rejoindre la liste" },
+  "header": { "cta": "Rejoindre la liste", "ctaShort": "Rejoindre" },
   "hero": {
     "eyebrow": "Une appli familiale, mais en plus discrète",
     "headline": "La vie de famille moderne, c'est plus qu'<em class=\"text-accent not-italic\"><span class=\"italic\">une seule tête</span></em> ne peut retenir.",
