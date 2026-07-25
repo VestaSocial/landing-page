@@ -1,0 +1,172 @@
+{
+  "_note": "DRAFT translation for the PoC — needs review by a native Turkish copywriter (transcreation, not literal MT). Informal 'sen' throughout; 'zihinsel yük' is the established Turkish term for mental load; 'Fun Time' kept as the product term; AI → yapay zekâ; GDPR kept as GDPR and deliberately NOT localised to Turkey's KVKK (Vesta complies with the EU GDPR, a separate instrument); euro amounts as '45 €', percentages Turkish-style ('%71'), 24h times (16.00). '3-degree social graph' → idiomatic 'Üçüncü dereceye kadar aile' (flagged for review). §04 school-notice example: source stays Dutch, 'you' now reads Turkish and Grandma reads English, to keep the trilingual illustration intact.",
+  "meta": {
+    "title": "Vesta — Zihinsel yükü taşıyan yapay zekâ destekli aile uygulaması",
+    "description": "Ailenin zihinsel yükünü taşıyan yapay zekâ destekli aile uygulaması — böylece kimse onu tek başına taşımak zorunda kalmaz. Şehirler, ülkeler ve diller arasında. Bekleme listesine katıl.",
+    "ogTitle": "Vesta — Zihinsel yükü taşıyan yapay zekâ destekli aile uygulaması",
+    "ogDescription": "Ailenin zihinsel yükünü taşıyan yapay zekâ destekli aile uygulaması — böylece kimse onu tek başına taşımak zorunda kalmaz. Şehirler, ülkeler ve diller arasında."
+  },
+  "header": { "cta": "Bekleme listesine katıl", "ctaShort": "Katıl" },
+  "hero": {
+    "eyebrow": "Bir aile uygulaması, ama daha sakin",
+    "headline": "Modern aile hayatı, <em class=\"text-accent not-italic\"><span class=\"italic\">tek bir kafanın</span></em> tutabileceğinden fazlası.",
+    "subhead": "Ailenin zihinsel yükünü taşıyan <span class=\"text-ink\">yapay zekâ destekli aile uygulaması</span> — böylece kimse onu tek başına taşımak zorunda kalmaz.",
+    "cta": "Bekleme listesine katıl",
+    "noSpam": "Spam yok. Verilerini asla kimseye satmayız.",
+    "cities": {
+      "amsterdam": "— yuva",
+      "istanbul": "— büyükanne ve büyükbaba",
+      "london": "— en büyük, üniversitede"
+    }
+  },
+  "s2": {
+    "eyebrow": "Zihinsel yük",
+    "heading": "Neredeyse her zaman <em class=\"text-accent not-italic\"><span class=\"italic\">tek bir kişiye</span></em> düşer.",
+    "intro": "Eğer okul tatilinin ne zaman başladığını, çocuğunun pasaportunun ne zaman dolacağını ve buzdolabında neyin çözülmekte olduğunu bilen ebeveynsen — modern bir ailenin zihinsel yükünü taşıyorsun demektir.",
+    "stats": [
+      { "num": "%71", "text": "ev içindeki zihinsel yük görevleri tek bir ebeveyne düşüyor — gelir ya da kariyer ne olursa olsun." },
+      { "num": "%70", "text": "Avrupa'daki anne kendini <em>bunalmış</em> olarak tanımlıyor — neredeyse yarısı bununla bağlantılı kaygı ya da depresyon bildiriyor." },
+      { "num": "%82", "text": "ebeveyn, ailenin etkinliklerini ve yükümlülüklerini takip etmekte zorlanıyor." },
+      { "num": "%56", "text": "aile, bir takvim çakışması yüzünden önemli bir şeyi kaçırdı." }
+    ],
+    "framing": "Çoğu zaman onu taşıyan bir annedir — ama pek çok evde bu, evi çekip çeviren kişidir: daha az seyahat eden ebeveyn, evi tek başına geçindiren kişi, hiç fark ettirmeden ailenin kilit ismi hâline gelen kişi. Senin evinde bu kim olursa olsun, yük gerçek — ve tek bir çift omuza binmemeli.",
+    "capstone": "Vesta, bu yükü kafandan almak — ve onu bütün ailenin paylaşabileceği bir yere koymak için var."
+  },
+  "s3": {
+    "eyebrow": "Nasıl çalışır",
+    "heading": "Bir hafta <em class=\"text-accent not-italic\"><span class=\"italic\">gerçekte</span></em> nasıl görünür.",
+    "subhead": "Bir özellik listesi değil — birkaç sıradan an ve Vesta'nın onlarla sessizce ne yaptığı.",
+    "youLabel": "Sen",
+    "cards": [
+      {
+        "title": "Günün, çoktan yoluna girmiş.",
+        "you": "Kahveni içerken uygulamayı aç.",
+        "vesta": "Bugün tek bir ekranda: 16.00'da yüzme, imzalanacak kargo, annende akşam yemeği — her evin takviminden derlenmiş, kendi dilinde.",
+        "outcome": "Beş uygulama ve kafandaki o bitmeyen liste yerine tek bir bakış."
+      },
+      {
+        "title": "İki çocuk, iki takvim.",
+        "you": "Çocuklar eve gelince okuldan gelen kâğıtların fotoğrafını çek.",
+        "vesta": "Yüzme, dişçi, cumaya kadar yatırılacak okul gezisi ön ödemesi — her biri doğru çocuğun takviminde, son tarihiyle birlikte.",
+        "outcome": "Artık ailenin veri giriş memuru değilsin."
+      },
+      {
+        "title": "Bir ziyaret, nihayet takvimde.",
+        "you": "Yurt dışındaki ailenin tatille ilgili mesajını ilet.",
+        "vesta": "Önerdikleri tarihleri okur, çocukların okul tatilleriyle karşılaştırır ve uygun olan haftayı işaretler.",
+        "outcome": "Sınır ötesi bir ziyaret, uzun bir e-posta zinciriyle değil, saniyeler içinde kesinleşir."
+      },
+      {
+        "title": "Keyfini çıkarmak için ne kaldığını gör.",
+        "you": "Haftanın harcamalarını gir — <em class=\"italic\">\"45 € market Lidl.\"</em>",
+        "vesta": "<em class=\"italic\">\"980 € Fun Time kaldı, önümüzde 12 gün — günde yaklaşık 80 €.\"</em> Ve: <em class=\"italic\">\"Annenin doğum günü haftaya — biraz kenara koyalım mı?\"</em>",
+        "outcome": "Kısıtlama gibi değil, izin gibi hissettiren bir bütçe."
+      }
+    ]
+  },
+  "s4": {
+    "eyebrow": "Vesta'yı farklı kılan",
+    "heading": "Her deneyimi şekillendiren dört fikir.",
+    "principles": [
+      {
+        "title": "Tek kişi, birçok ev.",
+        "benefit": "Tek bir giriş, ait olduğun her evi bir araya getirir — kendi evin, ailenin yurt dışındaki evi, üniversitedeki öğrenci evi — böylece ailenin her tarafı için ayrı bir uygulamaya ya da grup sohbetine gerek kalmaz.",
+        "brief": "\"Bugün, evlerin genelinde: Noa 16.00'da dişçide, annenin uçağı 14.00'te iniyor ve sen cuma günü Berlin gezisinden dönüyorsun.\""
+      },
+      {
+        "title": "Ailen, kendi dilinde.",
+        "benefit": "Herkes aynı aile hayatını kendi dilinde ve kendi saat diliminde görür — böylece kimse, kendine ait olmayan bir dil ya da saat yüzünden dışarıda kalmaz.",
+        "brief": "\"Okuldan Hollandaca bir duyuru gelir. Sen onu Türkçe okursun, büyükanne İngilizce — ve her takvime doğru yerel saatte düşer.\""
+      },
+      {
+        "title": "Senin yerine düşünen yapay zekâ.",
+        "benefit": "Hayatını formlara yazmayı bırak: bir kâğıdın fotoğrafını çek, bir e-postayı ilet ya da sadece söyle — doğru takvimler ve yapılacaklar listeleri kendi kendine dolsun.",
+        "brief": "\"Çarşamba tıka basa dolu — Lily'nin yüzme dersi, haftalık market ve ailenle her zamanki görüşmen. Akşam daha sakin geçsin diye marketi cumartesi sabahına alayım mı?\""
+      },
+      {
+        "title": "Sessiz, yardımsever bir yoldaş.",
+        "benefit": "Yardım, gerçekten gerektiğinde gelir; gerekmediğinde sessiz kalır — diğer uygulamaların seni içinde boğduğu rozet spam'i ve bildirim gürültüsü olmadan.",
+        "brief": "\"Sakin bir gün sakin kalır. Saat altıda tek bir not: 'Bu akşam çöpleri çıkar — gerisi tamam.'\""
+      }
+    ]
+  },
+  "s5": {
+    "eyebrow": "Yakın ve uzak",
+    "heading": "Hepsi <em class=\"text-accent-light not-italic\"><span class=\"italic\">aynı çatı altında</span></em> yaşamayan aileler için tasarlandı.",
+    "shapes": [
+      "Bir ebeveyn haftaların çoğunda iş için uzakta, diğeri evde ritmi koruyor.",
+      "Birkaç şehir ötede büyükanne büyükbaba, birkaç ülke ötede kuzenler — yine de herkes olan bitenden haberdar.",
+      "Üniversitede bir öğrenci evi — kira, ev işleri ve takvim, hep senkronda.",
+      "Doğum günleri, okula gidiş gelişler ve ziyaretler — saat dilimlerini aşarak ya da sadece şehrin öbür ucunda — koordine edilir."
+    ],
+    "graphEyebrow": "Üçüncü dereceye kadar aile",
+    "graphBody": "Hane halkından olmayan geniş ailenle mesajlaş ve birlikte planla — teyzen, çocuğunun diğer büyükbabası, neredeyse aileden sayılan en yakın arkadaşın — onları yeni bir hesap açmaya ya da yeni bir grup sohbetine katılmaya zorlamadan."
+  },
+  "s6": {
+    "eyebrow": "Avrupa'da geliştirildi",
+    "heading": "Tasarımdan itibaren GDPR. <em class=\"text-accent not-italic\"><span class=\"italic\">Verilerin, yalnızca senin.</span></em>",
+    "subline": "Vesta bağımsızdır, aile tarafından finanse edilir ve uzun vade için kurulmuştur.",
+    "items": [
+      { "term": "Veriler AB'de barındırılır", "desc": "Ailenin verileri AB'deki veri merkezlerinde tutulur." },
+      { "term": "Hanenle sınırlı", "desc": "Yalnızca davet ettiğin kişiler görebilir." },
+      { "term": "Asla satılmaz ya da işlenmez", "desc": "Başkasının modellerini eğitmek için asla kullanılmaz." },
+      { "term": "Üçüncü taraf izleyici yok", "desc": "Etkinliğin hanenin içinde kalır, internette asla takip edilmez." }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Bekleme listesi",
+    "heading": "Vesta'ya <em class=\"text-accent not-italic\"><span class=\"italic\">ilk sen</span></em> gir.",
+    "body": "Kapalı beta, 2026'nın ilerleyen döneminde bekleme listesinin ilk üyelerine açılıyor. Nerede olduğunu bize söyle, beta davetlerini buna göre önceliklendirelim.",
+    "button": "Bekleme listesine katıl"
+  },
+  "faq": {
+    "eyebrow": "Sorular",
+    "heading": "Sorular, <em class=\"text-accent not-italic\"><span class=\"italic\">dürüstçe yanıtlandı.</span></em>",
+    "items": [
+      {
+        "q": "Vesta nedir?",
+        "a": "Aileyi organize etmek için bir uygulama — takvim, görevler, listeler, fotoğraflar, bütçe ve hane sohbeti — zihinsel yükü, şimdiye kadar onu taşıyan ebeveynin üzerinden alan bir yapay zekâ etrafında kuruldu. Mobil öncelikli."
+      },
+      {
+        "q": "Vesta kimler için?",
+        "a": "Hayatı birden fazla ülkeye, dile ya da haneye yayılmış modern aileler için. Ailen ülkeler, diller ya da evler arasında yaşıyorsa — gurbetçi ol ya da olma, Vesta senin için."
+      },
+      {
+        "q": "Vesta ne zaman kullanıma sunulacak?",
+        "a": "Şu anda geliştirme aşamasındayız; kapalı beta, 2026'da bekleme listesinin ilk üyelerine açılacak. Ürünün gerçek aileler için sağlam durduğundan emin olduğumuzda genel lansman gelecek."
+      },
+      {
+        "q": "Apple Family Sharing ya da Google Family Link'ten farkı ne?",
+        "a": "Bu araçlar, her aile üyesinin aynı ülkede yaşadığını varsayar. Vesta ise ilk günden itibaren ülkeler, diller ve saat dilimleri arasında yaşayan aileler için tasarlandı — ve üstüne gerçek bir koordinasyon katmanı ekler: görevler, fotoğraflar, hane bütçesi ve sohbet, tek bir yerde."
+      },
+      {
+        "q": "Diğer aile uygulamalarından farkı ne?",
+        "a": "Vesta Avrupa'da geliştirildi, tasarımı gereği çok haneli (tek bir hesap, ait olduğun her evi kapsar), her aile üyesi için çok dilli, yapay zekâ temelli ve tasarımdan itibaren GDPR uyumlu. Vesta'yı sınır ötesi, çok dilli, modern aileler için doğru seçim yapan da işte bu birleşim."
+      },
+      {
+        "q": "Benim dilimde olacak mı?",
+        "a": "Vesta İngilizce olarak başlıyor, hemen ardından Hollandaca geliyor. Almanca, Fransızca ve Türkçe yol haritasında sırada. Bekleme listesine katılırken tercih ettiğin dili bize söyle — önceliklerimizi buna göre belirliyoruz."
+      },
+      {
+        "q": "Ailemin verileri güvende olacak mı?",
+        "a": "Evet. Vesta, temelinde GDPR ile kuruludur; veriler AB'de barındırılır, üçüncü taraf takibi yoktur ve verilerin satılmaz. Hanenin verileri hanenle sınırlıdır ve istediğin zaman dışa aktarabilir ya da silebilirsin."
+      },
+      {
+        "q": "Teknolojiye pek yatkın olmayan yaşlı akrabalar ne olacak?",
+        "a": "Vesta, başka bir ülkedeki basit bir akıllı telefonu olan bir büyükannenin, hesap kurma çilesi olmadan katılabileceği şekilde tasarlanıyor. Fotoğraf almak, ortak bir takvimi görmek, bir aile sohbetine katılmak — bunlar ilk günden itibaren zahmetsiz olmalı."
+      },
+      {
+        "q": "Fiyatı ne olacak?",
+        "a": "Vesta'nın, her aile için temel koordinasyon özelliklerini kapsayan ücretsiz bir sürümü olacak. Premium özellikler euro cinsinden adil bir fiyatla sunulacak — ayrıntıları lansmana yakın paylaşacağız. Bekleme listesi üyeleri, beta boyunca premium özelliklere uzatılmış ücretsiz erişim elde eder."
+      },
+      {
+        "q": "İşe alım yapıyor, yatırım arıyor ya da iş birliklerine açık mısınız?",
+        "a": "Bağımsızız ve öyle kalmak niyetindeyiz. Uluslararası bir okulu temsil ediyorsan, gurbetçi topluluğuna yönelik bir yayın çıkarıyorsan, Hollandalı bir işverende İK hareketliliği alanında çalışıyorsan ya da relokasyon danışmanlığı yapıyorsan — ve beta sürecinde yer almak istiyorsan — bize <a href=\"mailto:hello@vesta.social\" class=\"text-accent hover:text-ink underline decoration-accent/30 hover:decoration-ink/50 underline-offset-4\">hello@vesta.social</a> adresinden yaz."
+      }
+    ]
+  },
+  "footer": {
+    "tagline": "Vesta — Roma'nın yuva ve aile tanrıçasının adını taşır.",
+    "builtIn": "Hollanda'nın Amsterdam şehrinde geliştirildi."
+  }
+}
