@@ -13,4 +13,13 @@ eleventyExcludeFromCollections: true
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}/"/>
   </url>
 {%- endfor %}
+  <!-- Guides (English-only for now — no hreflang alternates) -->
+  <url>
+    <loc>{{ site.url }}/guides/</loc>
+  </url>
+{%- for item in collections.guide %}
+  <url>
+    <loc>{{ site.url }}{{ item.url }}</loc>
+  </url>
+{%- endfor %}
 </urlset>
