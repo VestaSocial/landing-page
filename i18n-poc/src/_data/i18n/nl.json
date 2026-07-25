@@ -6,7 +6,7 @@
     "ogTitle": "Vesta — De AI-gezinsapp die de mentale last draagt",
     "ogDescription": "De AI-gestuurde gezinsapp die de mentale last van je gezin draagt, zodat niemand die alleen draagt — over steden, landen en talen heen."
   },
-  "header": { "cta": "Op de wachtlijst" },
+  "header": { "cta": "Op de wachtlijst", "ctaShort": "Inschrijven" },
   "hero": {
     "eyebrow": "Een gezinsapp, maar dan rustiger",
     "headline": "Modern gezinsleven is meer dan <em class=\"text-accent not-italic\"><span class=\"italic\">één hoofd</span></em> kan onthouden.",
