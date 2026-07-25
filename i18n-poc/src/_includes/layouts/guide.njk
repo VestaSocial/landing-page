@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ title }} — Vesta</title>
+  <meta name="description" content="{{ description }}" />
+  <meta name="theme-color" content="#7a3a1d" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="en_GB" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description }}" />
+
+  <!-- Newsreader, served from Bunny Fonts (EU-hosted, GDPR-clean). Weights 300-700, regular + italic, optical-size axis. -->
+  <link rel="preconnect" href="https://fonts.bunny.net" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://fonts.bunny.net/css?family=newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;0,6..72,700;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&display=swap"
+  />
+
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream:    '#f4efe6',  // hero paper
+            paper2:   '#ede6d8',  // alternating sections
+            rule:     '#d8cfbe',  // hairlines
+            ink:      '#1f1a14',  // near-black warm — headings + dark section bg
+            ink2:     '#3a3127',  // softer body text
+            muted:    '#8a8175',  // captions, helper text
+            accent:   '#7a3a1d',  // deep terracotta
+            'accent-light': '#e6a880'  // lighter terracotta for dark section
+          },
+          fontFamily: {
+            serif: ['Newsreader', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'serif'],
+            sans:  ['Newsreader', 'ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'serif']
+          },
+          letterSpacing: {
+            'editorial-eyebrow': '0.22em',
+            'editorial-mono': '0.18em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Structured data — BlogPosting/Article. Strings JSON-encoded via `dump` so
+       the JSON stays valid regardless of punctuation in the front matter. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ title | dump | safe }},
+    "description": {{ description | dump | safe }},
+    "datePublished": {{ datePublished | dump | safe }},
+    "dateModified": {{ dateModified | dump | safe }},
+    "author": {
+      "@type": "Organization",
+      "name": "Vesta",
+      "url": {{ site.url | dump | safe }}
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Vesta",
+      "logo": {
+        "@type": "ImageObject",
+        "url": {{ (site.url + "/favicon.svg") | dump | safe }}
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": {{ (site.url + page.url) | dump | safe }}
+    }
+  }
+  </script>
+
+  <!-- Structured data — FAQPage, built from the SAME `faq` front-matter list
+       that renders the visible FAQ below (single source of truth). -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for item in faq %}
+      {
+        "@type": "Question",
+        "name": {{ item.q | dump | safe }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ item.a | dump | safe }}
+        }
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-optical-sizing: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* Optical-size hints per heading scale */
+    .opsz-display { font-variation-settings: "opsz" 72; }
+    .opsz-md      { font-variation-settings: "opsz" 36; }
+    .opsz-sm      { font-variation-settings: "opsz" 18; }
+
+    /* FAQ accordion via native <details>/<summary> — mirrors the homepage */
+    details > summary {
+      list-style: none;
+      cursor: pointer;
+    }
+    details > summary::-webkit-details-marker { display: none; }
+    .acc-icon::before { content: '+'; display: inline-block; transition: transform 0.2s ease; }
+    details[open] .acc-icon::before { content: '–'; }
+
+    /* -------------------------------------------------------------------------
+       Rendered-markdown styles. The Tailwind CDN build ships without the
+       typography (`prose`) plugin, so the article body is styled by hand here
+       to match the site: Newsreader throughout, ink2 body text, terracotta H2s,
+       accent underlined links, hairline rules.
+       ---------------------------------------------------------------------- */
+    .article-body {
+      color: #3a3127;            /* ink2 */
+      font-weight: 300;
+      font-size: 1.0625rem;
+      line-height: 1.85;
+    }
+    @media (min-width: 640px) {
+      .article-body { font-size: 1.125rem; }
+    }
+    .article-body p {
+      margin: 1.5rem 0;
+      max-width: 42rem;
+    }
+    .article-body h2 {
+      color: #7a3a1d;            /* accent — terracotta */
+      font-weight: 400;
+      font-size: 1.75rem;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin: 3.25rem 0 1rem;
+      font-variation-settings: "opsz" 36;
+    }
+    @media (min-width: 640px) {
+      .article-body h2 { font-size: 2rem; }
+    }
+    .article-body h3 {
+      color: #1f1a14;            /* ink */
+      font-weight: 500;
+      font-size: 1.3rem;
+      line-height: 1.25;
+      margin: 2.5rem 0 0.75rem;
+      font-variation-settings: "opsz" 18;
+    }
+    .article-body a {
+      color: #7a3a1d;            /* accent */
+      text-decoration: underline;
+      text-decoration-color: rgba(122, 58, 29, 0.4);
+      text-underline-offset: 3px;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+    .article-body a:hover {
+      color: #1f1a14;
+      text-decoration-color: rgba(31, 26, 20, 0.5);
+    }
+    .article-body strong { color: #1f1a14; font-weight: 600; }
+    .article-body em { font-style: italic; }
+    .article-body ul,
+    .article-body ol {
+      margin: 1.5rem 0;
+      padding-left: 1.4rem;
+      max-width: 42rem;
+    }
+    .article-body li { margin: 0.5rem 0; line-height: 1.7; }
+    .article-body li::marker { color: #7a3a1d; }
+    .article-body blockquote {
+      border-left: 2px solid #7a3a1d;
+      padding-left: 1.25rem;
+      margin: 1.75rem 0;
+      font-style: italic;
+      color: #3a3127;
+    }
+    .article-body hr {
+      border: none;
+      border-top: 1px solid #d8cfbe;   /* rule */
+      margin: 3rem 0;
+    }
+  </style>
+</head>
+
+<body class="bg-cream text-ink font-serif antialiased">
+
+  <!-- ============================================== Top bar ============================================== -->
+  <header class="sticky top-0 z-40 border-b border-rule bg-cream/85 backdrop-blur">
+    <div class="max-w-3xl mx-auto px-6 sm:px-10 py-5 flex items-center justify-between gap-4">
+      <a href="/" class="font-serif italic text-2xl text-ink tracking-tight opsz-md">Vesta</a>
+      <a href="/guides/" class="text-[11px] font-semibold tracking-editorial-eyebrow uppercase text-ink2 hover:text-accent transition">Guides</a>
+    </div>
+  </header>
+
+  <main>
+    <article class="max-w-2xl mx-auto px-6 sm:px-10 py-16 sm:py-24">
+
+      <a href="/guides/" class="inline-block text-[11px] font-semibold tracking-editorial-eyebrow uppercase text-accent mb-7 hover:text-ink transition">
+        Guides
+      </a>
+
+      <h1 class="font-serif opsz-display text-4xl sm:text-5xl text-ink font-normal leading-[1.06] tracking-tight mb-8" style="text-wrap: pretty;">
+        {{ title }}
+      </h1>
+
+      <p class="font-serif italic text-xl sm:text-2xl text-ink2 leading-relaxed font-light mb-12 pb-12 border-b border-rule">
+        {{ description }}
+      </p>
+
+      <div class="article-body">
+        {{ content | safe }}
+      </div>
+
+      <!-- ============================================== FAQ ============================================== -->
+      {%- if faq and faq.length %}
+      <section class="mt-16 pt-12 border-t border-rule">
+        <h2 class="font-serif opsz-md text-3xl sm:text-4xl text-accent font-normal leading-tight tracking-tight mb-8" style="text-wrap: pretty;">
+          Frequently asked questions
+        </h2>
+        <div class="border-t border-rule">
+          {%- for item in faq %}
+          <details {% if loop.first %}open {% endif %}class="border-b border-rule">
+            <summary class="flex justify-between items-start gap-4 py-6">
+              <span class="font-serif text-lg sm:text-xl text-ink font-normal leading-snug">{{ item.q }}</span>
+              <span class="acc-icon font-serif text-2xl text-accent leading-none pt-1 select-none"></span>
+            </summary>
+            <p class="text-sm sm:text-base text-ink2 leading-relaxed font-light pb-6 pr-8">
+              {{ item.a }}
+            </p>
+          </details>
+          {%- endfor %}
+        </div>
+      </section>
+      {%- endif %}
+
+      <!-- ============================================== Back-link + CTA ============================================== -->
+      <div class="mt-16 pt-12 border-t border-rule flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+        <a href="/guides/" class="text-[11px] font-semibold tracking-editorial-eyebrow uppercase text-ink2 hover:text-accent transition">
+          ← All guides
+        </a>
+        <a href="/" class="inline-flex items-center gap-3 px-8 py-4 bg-ink hover:bg-black text-cream text-sm sm:text-base font-medium tracking-wide rounded-full transition">
+          Join the waitlist
+          <span class="text-base">→</span>
+        </a>
+      </div>
+
+    </article>
+  </main>
+
+</body>
+</html>
