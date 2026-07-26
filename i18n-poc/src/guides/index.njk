@@ -102,7 +102,10 @@ eleventyExcludeFromCollections: true
       </p>
 
       <ul class="border-t border-rule">
-        {%- for guide in collections.guide | sort(true, false, "data.datePublished") %}
+        {#- Explicit reading order via the `order` front-matter field (ascending);
+            collections.guide arrives date-sorted, so any guide missing `order`
+            falls back to that datePublished order. -#}
+        {%- for guide in collections.guide | sort(false, false, "data.order") %}
         <li class="border-b border-rule py-8 sm:py-10">
           <h2 class="font-serif text-2xl sm:text-3xl text-ink font-normal leading-snug tracking-tight mb-3">
             <a href="{{ guide.url }}" class="hover:text-accent transition">{{ guide.data.title }}</a>

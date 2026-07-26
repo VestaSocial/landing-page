@@ -4,6 +4,7 @@ tags: [guide]
 permalink: /guides/what-is-the-mental-load/
 title: "What Is the Mental Load? The Invisible Work of Motherhood, Explained"
 description: "The mental load is the invisible job of anticipating, planning and remembering everything a family needs. Here's what it is, why it falls on mothers, and how to share it — backed by research."
+order: 1
 datePublished: "2026-07-25"
 dateModified: "2026-07-25"
 faq:
@@ -34,7 +35,7 @@ Here's where the research gets uncomfortable. A 2024 study by Ana Catalano Weeks
 
 And it isn't simply a function of who earns less or works fewer hours. Follow-up research by the same team — pointedly titled *Take a Load Off? Not for Mothers* — found that neither more money nor more time reliably closes the gap. The mental load clings to the person who has become the family's default organiser, largely regardless of income or career.
 
-That default is *usually* a mother — but not always, and this is worth saying plainly. In plenty of homes the load sits with whoever runs the logistics: the parent who travels less, the single earner, the one who quietly became the household's operating system. If your family lives across two homes or two countries, it's often whoever holds the whole picture in their head. The gendered pattern is real and well-documented; so is the fact that the weight, wherever it lands, shouldn't sit on one set of shoulders.
+That default is *usually* a mother — but not always, and this is worth saying plainly. In plenty of homes the load sits with whoever runs the logistics: the parent who travels less, the single earner, the one who quietly became the household's operating system. If your family lives [across two homes or two countries](https://vesta.social/guides/the-cross-border-mental-load/), it's often whoever holds the whole picture in their head. The gendered pattern is real and well-documented; so is the fact that the weight, wherever it lands, shouldn't sit on one set of shoulders.
 
 ## What the mental load looks like in an ordinary week
 
@@ -54,7 +55,7 @@ Real relief comes from making the invisible visible, and from transferring whole
 
 ## How to actually start sharing it
 
-A few things genuinely help. **Get it out of your head and into a shared place** — a system everyone can see beats a mental list only one person holds. **Hand over domains, not tasks**, so the anticipating and remembering move too. **Make the invisible steps explicit**, naming the noticing and planning as real work rather than pretending the job is only the visible bit. And **let a system do the remembering** where it can, so being organised doesn't depend on one person never dropping the thread.
+A few things genuinely help. **Get it out of your head and into a shared place** — a system everyone can see beats a mental list only one person holds. **[Hand over domains, not tasks](https://vesta.social/guides/how-to-stop-being-the-default-parent/)**, so the anticipating and remembering move too. **Make the invisible steps explicit**, naming the noticing and planning as real work rather than pretending the job is only the visible bit. And **let a system do the remembering** where it can, so being organised doesn't depend on one person never dropping the thread.
 
 That last point is where technology can help — if it's built for it. Most family apps are just shared calendars: a better place to store the load, but you're still the one who has to notice, type in and track everything. The harder, more useful problem is taking some of the noticing off your plate entirely.
 
