@@ -65,7 +65,7 @@ We may update these Terms as Vesta evolves. When changes are material, we will u
 
 ## Governing law
 
-These Terms are governed by the laws of England and Wales, and the courts of England and Wales will have jurisdiction — except where mandatory consumer-protection laws in your country of residence give you additional rights or a different forum.
+These Terms are governed by the laws of the Netherlands, and the courts of the Netherlands (Amsterdam) will have jurisdiction — except where mandatory consumer-protection laws in your country of residence give you additional rights or a different forum.
 
 ## Contact
 
